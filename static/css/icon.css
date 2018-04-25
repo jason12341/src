@@ -1,0 +1,662 @@
+@font-face {
+	font-family: Muiicons;
+	font-weight: normal;
+	font-style: normal;
+	src: url('../lib/mui/fonts/iconfont.ttf') format('truetype');
+}
+
+.icon {
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.15em;
+	fill: currentColor;
+	overflow: hidden;
+}
+
+.icon-plus,
+.icon-face,
+.icon-plus {
+	color: #707070;
+}
+
+
+/*----------------------------询价类型图标----------------------------*/
+
+
+/*导游*/
+
+.aby-icon-guide:before {
+	content: '\e63f';
+}
+
+
+/*酒店*/
+
+.aby-icon-hotel:before {
+	content: '\e642';
+}
+
+
+/*机票*/
+
+.aby-icon-pticket:before {
+	content: '\e643';
+}
+
+
+/*景点门票*/
+
+.aby-icon-sticket:before {
+	content: '\e644';
+}
+
+
+/*机+酒*/
+
+.aby-icon-planhotel:before {
+	content: '\e696';
+}
+
+
+/*----------------------------app底部5个菜单----------------------------*/
+
+
+/*首页*/
+
+.aby-icon-home:before {
+	content: '\e614';
+}
+
+
+/*首页选中*/
+
+.aby-icon-home-selected:before {
+	content: '\e61c';
+}
+
+
+/*消息*/
+
+.aby-icon-msg:before {
+	content: '\e616';
+}
+
+
+/*消息选中*/
+
+.aby-icon-msg-selected:before {
+	content: '\e619';
+}
+
+
+/*询价*/
+
+.aby-icon-purchase:before {
+	content: '\e613';
+}
+
+
+/*询价选中*/
+
+.aby-icon-purchase-selected:before {
+	content: '\e698';
+}
+
+
+/*订单*/
+
+.aby-icon-order:before {
+	content: '\e617';
+}
+
+
+/*订单选中*/
+
+.aby-icon-order-selected:before {
+	content: '\e61a';
+}
+
+
+/*我的*/
+
+.aby-icon-my:before {
+	content: '\e615';
+}
+
+
+/*我的选中*/
+
+.aby-icon-my-selected:before {
+	content: '\e618';
+}
+
+
+/*----------------------------我的----------------------------*/
+
+
+/*我的产品库*/
+
+.aby-icon-myproduct:before {
+	content: '\e630';
+}
+
+
+/*我的询价*/
+
+.aby-icon-myinquiry:before {
+	content: '\e631';
+}
+
+
+/*我的收藏*/
+
+.aby-icon-mycollection:before {
+	content: '\e632';
+}
+
+
+/*我的质保金*/
+
+.aby-icon-mygold:before {
+	content: '\e635';
+}
+
+
+/*店铺二维码*/
+
+.aby-icon-mycode:before {
+	content: '\e636';
+}
+
+
+/*子账号管理*/
+
+.aby-icon-account:before {
+	content: '\e637';
+}
+
+
+/*联系客服*/
+
+.aby-icon-service:before {
+	content: '\e638';
+}
+
+
+/*地接角标*/
+
+.aby-icon-roleground:before {
+	content: '\e691';
+}
+
+
+/*组团角标*/
+
+.aby-icon-roletravel:before {
+	content: '\e692';
+}
+
+
+/*----------------------------head部分按钮图标----------------------------*/
+
+
+/*设置*/
+
+.aby-icon-setting:before {
+	content: '\e615';
+}
+
+
+/*加号*/
+
+.aby-icon-plus:before {
+	content: '\e65c';
+}
+
+
+/*搜索*/
+
+.aby-icon-search:before {
+	content: '\e670';
+}
+
+
+/*扫码*/
+
+.aby-icon-scan:before {
+	content: '\e657';
+}
+
+
+/*发布采购*/
+
+.aby-icon-publishpurchase:before {
+	content: '\e658';
+}
+
+
+/*向下三角-实心*/
+
+.aby-icon-arrowdown:before {
+	content: '\e67d';
+}
+
+
+/*客服*/
+
+.aby-icon-hservice:before {
+	content: '\e653';
+}
+
+
+/*刷新*/
+
+.aby-icon-refresh:before {
+	content: '\e65a';
+}
+
+
+/*清空、关闭*/
+
+.aby-icon-clear:before {
+	content: '\e68d';
+}
+
+
+/*----------------------------订单----------------------------*/
+
+
+/*全部订单*/
+
+.aby-icon-orderall:before {
+	content: '\e63a';
+}
+
+
+/*待确认*/
+
+.aby-icon-orderconfirm:before {
+	content: '\e63b';
+}
+
+
+/*待付款*/
+
+.aby-icon-orderpay:before {
+	content: '\e63c';
+}
+
+
+/*待出行*/
+
+.aby-icon-ordertrip:before {
+	content: '\e63d';
+}
+
+
+/*待完成*/
+
+.aby-icon-orderfinish:before {
+	content: '\e63e';
+}
+
+
+/*待评价*/
+
+.aby-icon-orderevaluate:before {
+	content: '\e63f';
+}
+
+
+/*退款*/
+
+.aby-icon-orderrefund:before {
+	content: '\e640';
+}
+
+
+/*协议*/
+
+.aby-icon-orderagreement:before {
+	content: '\e675';
+}
+
+
+/*我的协议*/
+
+.aby-icon-myagreement:before {
+	content: '\e688';
+}
+
+
+/*----------------------------订单状态跟踪----------------------------*/
+
+
+/*订单状态*/
+
+.aby-icon-circle:before {
+	content: '\e67a';
+}
+
+
+/*订单状态-当前状态*/
+
+.aby-icon-circleselected:before {
+	content: '\e694';
+}
+
+
+/*----------------------------聊天----------------------------*/
+
+
+/*表情*/
+
+.aby-icon-chatface:before {
+	content: '\e66c';
+}
+
+
+/*加号*/
+
+.aby-icon-chatplus:before {
+	content: '\e66d';
+}
+
+
+/*相机*/
+
+.aby-icon-chatcamera:before {
+	content: '\e695';
+}
+
+
+/*聊天设置*/
+
+.aby-icon-chatsetting:before {
+	content: '\e654';
+}
+
+
+/*----------------------------注册、登录----------------------------*/
+
+
+/*姓名*/
+
+.aby-icon-name:before {
+	content: '\e65d';
+}
+
+
+/*姓名-白*/
+
+.aby-icon-namewhite:before {
+	content: '\e64d';
+}
+
+
+/*账号*/
+
+.aby-icon-loginid:before {
+	content: '\e65f';
+}
+
+
+/*账号-白*/
+
+.aby-icon-loginidwhite:before {
+	content: '\e65f';
+}
+
+
+/*身份证-白*/
+
+.aby-icon-IDwhite:before {
+	content: '\e64e';
+}
+
+
+/*密码*/
+
+.aby-icon-pwd:before {
+	content: '\e661';
+}
+
+
+/*密码-白*/
+
+.aby-icon-pwdwhite:before {
+	content: '\e64b';
+}
+
+
+/*验证码*/
+
+.aby-icon-vcode:before {
+	content: '\e660';
+}
+
+
+/*验证码-白*/
+
+.aby-icon-vcodewhite:before {
+	content: '\e64c';
+}
+
+
+/*企业名称-白*/
+
+.aby-icon-businesswhite:before {
+	content: '\e64f';
+}
+
+
+/*职位*/
+
+.aby-icon-job:before {
+	content: '\e65e';
+}
+
+
+/*营业执照-白*/
+
+.aby-icon-licensewhite:before {
+	content: '\e650';
+}
+
+
+/*----------------------------酒店搜索页----------------------------*/
+
+
+/*入住酒店所在城市*/
+
+.aby-icon-hotelcity:before {
+	content: '\e66f';
+}
+
+
+/*当前所在位置*/
+
+.aby-icon-nowlocation:before {
+	content: '\e671';
+}
+
+
+/*----------------------------分享----------------------------*/
+
+
+/*朋友圈*/
+
+.aby-icon-firends:before {
+	content: '\e665';
+}
+
+
+/*微信*/
+
+.aby-icon-wechat:before {
+	content: '\e664';
+}
+
+
+/*qq空间*/
+
+.aby-icon-qqspace:before {
+	content: '\e663';
+}
+
+
+/*qq*/
+
+.aby-icon-qq:before {
+	content: '\e662';
+}
+
+
+/*----------------------------操作按钮----------------------------*/
+
+
+/*减号按钮-灰*/
+
+.aby-icon-btnminus:before {
+	content: '\e678';
+}
+
+
+/*减号按钮-湖蓝*/
+
+.aby-icon-btnminus-blue:before {
+	content: '\e686';
+}
+
+
+/*加号按钮-灰*/
+
+.aby-icon-btnplus:before {
+	content: '\e685';
+}
+
+
+/*加号按钮-湖蓝*/
+
+.aby-icon-btnplus-blue:before {
+	content: '\e684';
+}
+
+
+/*复选框-未选中*/
+
+.aby-icon-checkbox:before {
+	content: '\e690';
+}
+
+
+/*复选框-已选中*/
+
+.aby-icon-checkbox-checked:before {
+	content: '\e682';
+}
+
+
+/*箭头-左*/
+
+.aby-icon-arrowleft:before {
+	content: '\e67e';
+}
+
+
+/*箭头-右*/
+
+.aby-icon-arrowright:before {
+	content: '\e67f';
+}
+
+
+/*抢单-闪电*/
+
+.aby-icon-rob:before {
+	content: '\e674';
+}
+
+
+/*电话联系*/
+
+.aby-icon-call:before {
+	content: '\e673';
+}
+
+
+/*在线联系*/
+
+.aby-icon-chat:before {
+	content: '\e672';
+}
+
+
+/*编辑修改按钮*/
+
+.aby-icon-edit:before {
+	content: '\e68a';
+}
+
+
+/*启用按钮*/
+
+.aby-icon-enable:before {
+	content: '\e693';
+}
+
+
+/*禁用按钮*/
+
+.aby-icon-forbidden:before {
+	content: '\e68b';
+}
+
+
+/*在线联系-圈型*/
+
+.aby-icon-chat-circle:before {
+	content: '\e669';
+}
+
+
+/*电话联系-圈型*/
+
+.aby-icon-call-circle:before {
+	content: '\e668';
+}
+
+
+/*删除-垃圾桶*/
+
+.aby-icon-delete:before {
+	content: '\e659';
+}
+
+
+/*筛选*/
+
+.aby-icon-screen:before {
+	content: '\e652';
+}
+
+
+/*系统消息*/
+
+.aby-icon-msgsystem:before {
+	content: '\e656';
+}
+
+
+/*订单消息*/
+
+.aby-icon-msgorder:before {
+	content: '\e655';
+}
+
+
+/*时钟*/
+
+.aby-icon-clock:before {
+	content: '\e68e';
+}

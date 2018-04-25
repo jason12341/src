@@ -1,0 +1,238 @@
+<template>
+	<aby-page>
+		<aby-header slot="header">
+			<div slot="title">
+				<h1 class="mui-title">李小白</h1>
+				<h6 class="business">南京爱伴游网络科技有限公司</h6>
+			</div>
+			<aby-icon class="mui-icon mui-pull-right icon-chatsetting" slot="right" type="chatsetting"></aby-icon>
+		</aby-header>
+		<div class="mui-content" slot="content">
+			<div id='msg-list'>
+			</div>
+		</div>
+		<footer slot="footer" id="123">
+			<div class="footer-center">
+				<textarea id='msg-text' type="text" class='input-text'></textarea>
+			</div>
+			<label class="footer-right">
+				<aby-icon class="mui-icon icon-face" type="chatface"></aby-icon>
+				<aby-icon class="mui-icon icon-plus" type="chatplus"></aby-icon>
+			</label>
+		</footer>
+	</aby-page>
+</template>
+
+<script>
+</script>
+
+<style scoped>
+	html,
+	body {
+		height: 100%;
+		margin: 0px;
+		padding: 0px;
+		overflow: hidden;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+	}
+	
+	.mui-title {
+		line-height: 30px;
+	}
+	
+	.business {
+		display: inline-block;
+		right: 40px;
+		left: 40px;
+		overflow: hidden;
+		width: auto;
+		margin: 27px 0 0 0;
+		text-overflow: ellipsis;
+		margin-left: -22px;
+	}
+	
+	.icon-face,
+	.icon-plus {
+		font-size: 28px;
+	}
+	
+	.icon-chatsetting {
+		font-size: 22px;
+		color: #707070;
+		position: absolute;
+		right: 10px;
+		top: 0px;
+	}
+	
+	footer {
+		position: fixed;
+		width: 100%;
+		height: 50px;
+		min-height: 50px;
+		border-top: solid 1px #F0F0F0;
+		left: 0px;
+		bottom: 0px;
+		overflow: hidden;
+		padding: 0px 80px 0 10px;
+		background-color: #fafafa;
+	}
+	
+	.footer-right {
+		position: absolute;
+		width: 80px;
+		height: 50px;
+		right: 0px;
+		bottom: 0px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 100%;
+		padding: 12px 5px;
+		display: inline-block;
+	}
+	
+	.footer-center {
+		height: 100%;
+		padding: 8px 0px;
+	}
+	
+	.footer-center [class*=input] {
+		width: 100%;
+		height: 100%;
+		border-radius: 5px;
+	}
+	
+	.footer-center .input-text {
+		background: #F0F0F0;
+		border: solid 1px #F0F0F0;
+		padding: 10px !important;
+		font-size: 14px !important;
+		line-height: 12px !important;
+		font-family: verdana !important;
+		overflow: hidden;
+		border-radius: 15px;
+	}
+	
+	.footer-center .input-sound {
+		background-color: #eee;
+	}
+	
+	.mui-content {
+		height: 100%;
+		padding: 44px 0px 50px 0px;
+		overflow: auto;
+	}
+	
+	#msg-list {
+		height: 100%;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	
+	.msg-item {
+		padding: 8px;
+		clear: both;
+	}
+	
+	.msg-item .mui-item-clear {
+		clear: both;
+	}
+	
+	.msg-item .msg-user {
+		width: 38px;
+		height: 38px;
+		border: solid 1px #d3d3d3;
+		display: inline-block;
+		background: #fff;
+		border-radius: 3px;
+		vertical-align: top;
+		text-align: center;
+		float: left;
+		padding: 3px;
+		color: #ddd;
+	}
+	
+	.msg-item .msg-user-img {
+		width: 38px;
+		height: 38px;
+		display: inline-block;
+		border-radius: 3px;
+		vertical-align: top;
+		text-align: center;
+		float: left;
+		color: #ddd;
+	}
+	
+	.msg-item .msg-content {
+		display: inline-block;
+		border-radius: 5px;
+		border: solid 1px #d3d3d3;
+		background-color: #FFFFFF;
+		color: #333;
+		padding: 8px;
+		vertical-align: top;
+		font-size: 15px;
+		position: relative;
+		margin: 0px 8px;
+		max-width: 75%;
+		min-width: 35px;
+		float: left;
+	}
+	
+	.msg-item .msg-content .msg-content-inner {
+		overflow-x: hidden;
+	}
+	
+	.msg-item .msg-content .msg-content-arrow {
+		position: absolute;
+		border: solid 1px #d3d3d3;
+		border-right: none;
+		border-top: none;
+		background-color: #FFFFFF;
+		width: 10px;
+		height: 10px;
+		left: -5px;
+		top: 12px;
+		-webkit-transform: rotateZ(45deg);
+		transform: rotateZ(45deg);
+	}
+	
+	.msg-item-self .msg-user,
+	.msg-item-self .msg-content {
+		float: right;
+	}
+	
+	.msg-item-self .msg-content .msg-content-arrow {
+		left: auto;
+		right: -5px;
+		-webkit-transform: rotateZ(225deg);
+		transform: rotateZ(225deg);
+	}
+	
+	.msg-item-self .msg-content,
+	.msg-item-self .msg-content .msg-content-arrow {
+		background-color: #4CD964;
+		color: #fff;
+		border-color: #2AC845;
+	}
+	
+	footer .mui-icon {
+		color: #000;
+	}
+	
+	footer .mui-icon:active {
+		color: #007AFF !important;
+	}
+	
+	footer .mui-icon-paperplane:before {
+		content: "发送";
+	}
+	
+	footer .mui-icon-paperplane {
+		font-size: 16px;
+		word-break: keep-all;
+		line-height: 100%;
+		padding-top: 6px;
+		color: rgba(0, 135, 250, 1);
+	}
+</style>

@@ -1,0 +1,42 @@
+/*cell标题*/
+.mint-cell-text{
+	font-size: 14px;
+	color: #999999;
+	display: inline-block;
+	width: 80px;
+	vertical-align: top;
+}
+.mint-cell-value{
+	font-size: 14px;
+	color: #232323;
+	display: inline-block;
+	vertical-align: top;
+}
+.mint-cell-value.is-link {
+    margin-right: 20px;
+}
+/*向右箭头*/
+.mint-cell-allow-right::after {   
+    right: 15px;
+}
+/*----------------------多行带备注信息----------------------*/
+.mint-cell-label {
+    color: #232323;
+    display: block;
+    font-size: 14px;
+    padding: 5px 0px 20px 0px;
+    text-align: justify;
+    width: 100%;
+}
+
+.aby-area .mint-cell-text{
+	border-bottom: 1px solid #F0F0F0;
+	padding: 10px 0px;
+	width: 120%;
+}
+.aby-area .mint-cell-allow-right::after{
+	top: 18px;
+}
+.aby-area .mint-cell-wrapper {
+    padding-right: 0px;
+}

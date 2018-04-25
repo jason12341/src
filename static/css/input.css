@@ -1,0 +1,144 @@
+/*输入框容器*/
+
+.field{
+	position: relative;
+	
+}
+.field .mint-cell {
+    background-color: rgba(255,255,255,0);
+	
+}
+/*代码打包后输入框容器，用于消除容器线条*/
+
+.mint-cell-wrapper {
+	background-size: 120% 0px!important;
+}
+
+
+/*圆角线条输入框*/
+
+.aby-input-line input {
+	border-radius: 20px;
+	padding: 10px 20px 10px 60px;
+	font-size: 16px!important;
+	background: rgba(255, 255, 255, 0);
+	border: 1px solid #FFFFFF;
+	color: #FFFFFF;
+}
+
+.aby-input-line input::-webkit-input-placeholder {
+	color: #FFFFFF;
+}
+
+.aby-input-line input::-moz-input-placeholder {
+	color: #FFFFFF;
+}
+
+.aby-input-line input::-ms-input-placeholder {
+	color: #FFFFFF;
+}
+
+.aby-input-line-button {
+	text-align: center;
+	background-color: #FFFFFF!important;
+	color: #08C7B5;
+	border-radius: 20px!important;
+}
+.aby-input-button-blue{
+	text-align: center;
+	background-color: #08C7B5!important;
+	color: #FFFFFF;
+	border-radius: 20px!important;
+}
+/*线条湖蓝色*/
+
+.aby-input-line-blue input {
+	border: 1px solid #08C7B5;
+	color: #232323;
+}
+.aby-input-line-blue input::-webkit-input-placeholder {
+	color: #AAAAAA;
+}
+
+.aby-input-line-blue input::-moz-input-placeholder {
+	color: #AAAAAA;
+}
+
+.aby-input-line-blue input::-ms-input-placeholder {
+	color: #AAAAAA;
+}
+
+
+/*带图标输入框图标样式*/
+
+.field #iconLabel {
+	display: inline-block;
+	font-family: Muiicons;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1;
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+	position: absolute;
+	left: 25px;
+	margin-top: 7px;
+	line-height: 24px;
+}
+
+
+/*清空按钮*/
+
+.mint-field-clear {
+	opacity: .7;
+}
+
+.mint-field-clear i {
+	position: absolute;
+	right: 25px;
+	top: 24%;
+	color: #FFFFFF;
+}
+
+
+/*通用输入框 左标题右文字（文字左对齐）*/
+.aby-input-default input{
+	width: 100%;
+	padding: 10px 20px 10px 80px;
+	font-size: 16px!important;
+	background: rgba(255, 255, 255, 0);
+	border: none;
+	color: #232323;
+	margin-bottom: 0px;
+}
+.field .inLabel{
+	font-size: 14px;
+	color: #999999;
+	position: absolute;
+	margin-top: 14px;
+	margin-left: 10px;
+}
+.aby-input-default .mint-field-clear i {
+	position: absolute;
+	right: 20px;
+	margin-top: 5px;
+	color: #000000;
+	opacity: .6;
+}
+/*多行输入框，标题在上文本框在下*/
+.aby-input-area textarea{
+	margin-top: 50px;
+	padding: 0px;
+	font-size: 16px!important;
+	background: rgba(255, 255, 255, 0);
+}
+.field .areaLabel{
+	font-size: 14px;
+	color: #999999;
+	position: absolute;
+	padding: 0px 10px 10px 20px;
+	margin:10px -10px 10px -10px;
+	border-bottom: 1px solid #F0F0F0;
+	display: block;
+	width: 120%;
+}

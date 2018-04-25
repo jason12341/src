@@ -1,0 +1,85 @@
+/*详情容器*/
+
+.aby-detail {
+	padding: 10px 10px 20px 10px;
+	margin: 0;
+}
+
+.aby-detail-line {
+	background-color: #FFFFFF;
+	border-bottom: 1px dashed #DDDDDD;
+}
+
+.aby-detail-content,
+.aby-detail-header,
+.aby-detail-operation,
+.aby-detail-remarks,
+.aby-detail-total {
+	background-color: #FFFFFF;
+	padding: 17px;
+}
+
+.aby-detail-content .mui-media-object {
+	width: 70px;
+	max-width: 70px;
+	color: #AAAAAA;
+}
+
+.aby-detail-content .mui-table-view .mui-media-object,
+.aby-detail-content .mui-table-view .mui-media-body {
+	line-height: 20px;
+	height: auto;
+	font-size: 13px;
+}
+
+.aby-detail-content .mui-table-view-cell {
+	padding: 5px 0px;
+}
+
+.aby-detail-header h4 {
+	padding: 15px 15px;
+	margin: 0px;
+}
+
+.aby-detail-header p {
+	padding: 0px 15px 10px 15px;
+	margin: 0px;
+}
+
+.aby-detail-header button {
+	margin-right: 5px;
+}
+
+.aby-detail-header button:last-child {
+	margin-right: 0px;
+}
+
+.aby-detail-total {
+	font-size: 14px;
+}
+
+.aby-detail-publisher {
+	font-size: 13px;
+}
+
+.aby-detail .mui-table-view:before,
+.aby-detail .mui-table-view:after,
+.aby-detail .mui-table-view-cell:after {
+	height: 0px;
+}
+
+
+/*竖线*/
+
+.aby-detail-operation {
+	position: relative;
+	padding: 5px 0px;
+}
+
+.aby-line-vertical {
+	border-right: 1px solid #BBBBBB;
+	height: 20px;
+	position: absolute;
+	margin-left: 50%;
+	margin-top: -30px;
+}
