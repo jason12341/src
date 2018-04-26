@@ -35,7 +35,7 @@
 		</ul>
 		<!--消息部分-->
 		<ul class="mui-table-view aby-sysMsg">
-			<li class="mui-table-view-cell mui-media space">
+			<li class="mui-table-view-cell mui-media space" @click="toMsgList">
 				<img class="mui-media-object mui-pull-left" src="../../static/images/ico/ico_msgbar_3x.png">
 				<div class="mui-media-body aby-font-Black mui-navigate-right">
 					<p class='mui-ellipsis'>· 您有一条新的订单</p>
@@ -171,6 +171,12 @@
 			onSearch() {
 				this.$router.replace({
 					name: 'searchIndex',
+				});
+			},
+			// 消息通知
+			toMsgList(){
+				this.$router.push({
+					name: 'msgSystem',
 				});
 			}
 		},
