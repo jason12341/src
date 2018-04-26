@@ -10,14 +10,10 @@
 			<div class="mui-card space" v-for="(li,i) in list">
 				<div class="mui-card-header mui-card-media">
 					<img :src="li.publisher.cpLogo">
-					<div class="mui-media-body">
+					<div class="mui-media-body mui-ellipsis">
 						{{li.publisher.cpName}}
-						<p class="time">{{li.crateTime | filterConvertDateFromNow}}
-							<span>
-								<img src="../../static/images/logo.png">
-								<span :id="li.selectId"></span>
-							</span>
-						</p>
+						<p class="time">{{li.crateTime | filterConvertDateFromNow}}</p>
+						<aby-icon-color class="ptype" type="line"></aby-icon-color>
 					</div>
 				</div>
 				<div class="mui-card-content">
@@ -29,7 +25,12 @@
 						<p>交通方式：{{li.trafficTypeName}}</p>
 					</div>
 				</div>
-				<div class="mui-card-footer">浏览（{{li.readCnt}}）</div>
+				<div class="mui-card-footer">浏览（{{li.readCnt}}）
+					<span class="clock">
+						<aby-icon-color type="clock"></aby-icon-color>
+						<span :id="li.selectId"></span>
+					</span>
+				</div>
 			</div>
 		</div>
 	</aby-pull>
@@ -50,16 +51,36 @@
 				selectType: '',
 				isPrice: '',
 				scrollTop: '',
-				selectList:[
-					{title:'全部询价',value:''},
-					{title:'线路询价',value:10},
-					{title:'酒店询价',value:20},
-					{title:'机票询价',value:30},
-					{title:'机+酒询价',value:40},
-					{title:'门票询价',value:50},
-					{title:'导游服务',value:60},
-				],// 询价类型
-				
+				selectList: [{
+						title: '全部询价',
+						value: ''
+					},
+					{
+						title: '线路询价',
+						value: 10
+					},
+					{
+						title: '酒店询价',
+						value: 20
+					},
+					{
+						title: '机票询价',
+						value: 30
+					},
+					{
+						title: '机+酒询价',
+						value: 40
+					},
+					{
+						title: '门票询价',
+						value: 50
+					},
+					{
+						title: '导游服务',
+						value: 60
+					},
+				], // 询价类型
+
 			}
 		},
 		methods: {
@@ -111,8 +132,10 @@
 				});
 			},
 			// 发布询价
-			onPubish(){
-				this.$router.push({name: 'purchasePublish'});
+			onPubish() {
+				this.$router.push({
+					name: 'purchasePublish'
+				});
 			}
 		},
 		mounted() {
@@ -120,7 +143,7 @@
 			this.$parent.eventPageShow(this.$route.name);
 			this.getPullDown();
 		},
-		updated(){
+		updated() {
 			//初始化倒计时
 			for(var i = 0, len = this.list.length; i < len; i++) {
 				if(this.list[i].selectState == 10)
@@ -136,25 +159,48 @@
 <style scoped>
 	.mui-card {
 		font-size: 14px;
-		margin: 0px;
+		margin: 10px!important;
 		border-radius: 0px;
 		background-color: #fff;
-		-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
+		-webkit-box-shadow: 0px 0px 3px 0px rgba(187, 187, 187, 1);
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
-		line-height: 25px;
+		line-height: 20px;
+		border-radius: 4px;
+		box-shadow: 0px 0px 3px 0px rgba(187, 187, 187, 1);
+		border: 1px solid rgba(255, 255, 255, 1);
 	}
 	
 	.mui-card p {
 		margin: 0px;
 	}
 	
+	.mui-card h5 {
+		color: #232323;
+		font-weight: 500;
+	}
+	
+	.mui-media-body {
+		padding-right: 30px;
+	}
+	
+	.mui-card-footer {
+		color: #232323;
+	}
+	
 	.time span {
 		float: right;
 	}
 	
-	.time img {
-		width: 12px;
-		height: 12px;
-		margin-right: 5px;
+	.clock {
+		color: #FF9800;
+	}
+	/*询价类型*/
+	
+	.ptype {
+		position: absolute;
+		width: 24px;
+		height: 24px;
+		right: 10px;
+		top: 8px;
 	}
 </style>

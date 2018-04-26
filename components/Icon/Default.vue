@@ -24,6 +24,8 @@
 				case 'message':this.iconClass = 'aby-icon-message ' + this.className;break;
 										
 				//询价类型图标-----------------------------------------------------------------------------
+				//线路
+				case 'line':this.iconClass = 'aby-icon-line ' + this.className;break;
 				//导游
 				case 'guide':this.iconClass = 'aby-icon-guide ' + this.className;break;
 				//酒店

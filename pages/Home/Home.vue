@@ -5,6 +5,7 @@
 			<header-search slot="hSearch" disabled="true" @click.native="onSearch"></header-search>
 			<aby-icon slot="right" class="mui-icon mui-pull-right icon-plus" type="plus"></aby-icon>
 		</aby-header>
+		<aby-banner pageType="1"></aby-banner>
 		<div class="mui-content content">
 			<aby-banner pageType="1"></aby-banner>
 			<!--菜单部分-->
@@ -38,7 +39,7 @@
 			<ul class="mui-table-view aby-sysMsg">
 				<li class="mui-table-view-cell mui-media space" @click="toMsgList">
 					<aby-icon-color type="myinquiry"></aby-icon-color>
-					<!--<img class="mui-media-object mui-pull-left imgMsg" src="../../static/images/ico/ico_msgbar_3x.png">-->
+					<img class="mui-media-object mui-pull-left imgMsg" src="../../static/images/ico/ico_msgbar_3x.png">
 					<div class="mui-media-body aby-font-Black mui-navigate-right">
 						<p class='mui-ellipsis'>· 您有一条新的订单</p>
 						<p class='mui-ellipsis'>· 供应商推荐：猜你对以下供应商感兴趣</p>
