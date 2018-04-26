@@ -6,6 +6,12 @@
 				<div class="aby-detail-header">
 					<aby-icon className="mui-pull-right" type="clock"></aby-icon>
 					<span :id="data.selectId"></span>
+					<aby-icon-color class="ptype" v-if="data.selectType == 10" type="line"></aby-icon-color>
+					<aby-icon-color class="ptype" v-if="data.selectType == 20" type="hotel"></aby-icon-color>
+					<aby-icon-color class="ptype" v-if="data.selectType == 30" type="pticket"></aby-icon-color>
+					<aby-icon-color class="ptype" v-if="data.selectType == 40" type="planhotel"></aby-icon-color>
+					<aby-icon-color class="ptype" v-if="data.selectType == 50" type="sticket"></aby-icon-color>
+					<aby-icon-color class="ptype" v-if="data.selectType == 60" type="guide"></aby-icon-color>
 				</div>
 				<div class="aby-detail-line"></div>
 				<div class="aby-detail-content">
@@ -52,7 +58,7 @@
 					<!--酒店询价-->
 					<ul class="mui-table-view" v-if="data.selectType == 20||data.selectType == 40">
 						<h4>{{data.title}}</h4>
-						<li class="mui-table-view-cell mui-media">
+						<li class="mui-table-view-cell mui-media" v-if="data.hotelAddress">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">酒店地点</div>
 								<div class="mui-media-body mui-text-right">{{data.hotelAddress}}</div>
@@ -61,13 +67,13 @@
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">入住时间</div>
-								<div class="mui-media-body mui-text-right">{{data.liveTime}}</div>
+								<div class="mui-media-body mui-text-right">{{data.liveTime | filterConvertDate}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">离店时间</div>
-								<div class="mui-media-body mui-text-right">{{data.backTime}}</div>
+								<div class="mui-media-body mui-text-right">{{data.backTime | filterConvertDate}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
@@ -101,20 +107,20 @@
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">航程类型</div>
-								<div class="mui-media-body mui-text-right">{{data.trafficType}}</div>
+								<div class="mui-media-body mui-text-right">{{data.ticketType}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">出发时间</div>
-								<div class="mui-media-body mui-text-right">{{data.fromTime}}</div>
+								<div class="mui-media-body mui-text-right">{{data.fromTime | filterConvertDate}}</div>
 							</a>
 						</li>
 						<!--航程类型为单程的时候没有返回时间-->
 						<li class="mui-table-view-cell mui-media" v-if="data.backTime!==''">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">返程时间</div>
-								<div class="mui-media-body mui-text-right">{{data.backTime}}</div>
+								<div class="mui-media-body mui-text-right">{{data.backTime | filterConvertDate}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
@@ -136,7 +142,7 @@
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">游玩时间</div>
-								<div class="mui-media-body mui-text-right">{{data.playScenicTime}}</div>
+								<div class="mui-media-body mui-text-right">{{data.playScenicTime | filterConvertDate}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">

@@ -13,7 +13,12 @@
 					<div class="mui-media-body mui-ellipsis">
 						{{li.publisher.cpName}}
 						<p class="time">{{li.crateTime | filterConvertDateFromNow}}</p>
-						<aby-icon-color class="ptype" :type="selectIcon(li.selectType)"></aby-icon-color>
+						<aby-icon-color class="ptype" v-if="li.selectType == 10" type="line"></aby-icon-color>
+						<aby-icon-color class="ptype" v-if="li.selectType == 20" type="hotel"></aby-icon-color>
+						<aby-icon-color class="ptype" v-if="li.selectType == 30" type="pticket"></aby-icon-color>
+						<aby-icon-color class="ptype" v-if="li.selectType == 40" type="planhotel"></aby-icon-color>
+						<aby-icon-color class="ptype" v-if="li.selectType == 50" type="sticket"></aby-icon-color>
+						<aby-icon-color class="ptype" v-if="li.selectType == 60" type="guide"></aby-icon-color>
 					</div>
 				</div>
 				<div class="mui-card-content" v-if="li.selectType == 10 || li.selectType == 30">
