@@ -18,11 +18,13 @@
 			<div class="mui-input-group" v-if="publishInfo.selectType==10||publishInfo.selectType==30||publishInfo.selectType==40">
 				<div class="mui-input-row aby-input-row">
 					<label>出发地</label>
-					<input type="text" placeholder="请输入出发地">
+					<aby-field modelId="publishInfo.fromCity" className="aby-input-line" iclassName="mintui mintui-more aby-font-white" placeholder="请输入出发地" type="text">
+					</aby-field>
 				</div>
 				<div class="mui-input-row aby-input-row">
 					<label>目的地</label>
-					<input type="text" placeholder="请输入目的地">
+					<aby-field modelId="publishInfo.goCity" className="aby-input-line" iclassName="mintui mintui-more aby-font-white" placeholder="请输入目的地" type="text">
+					</aby-field>
 				</div>
 			</div>
 			<!--酒店-->
@@ -255,17 +257,23 @@
 					{text:'景点门票',value:50},
 					{text:'导游',value:60}
 				],
+				trafficTypeList:[],// 出行方式列表
 				publishInfo:{
 					title:'',// 标题
 					selectType:10,// 采购类型数值
 					selectTypeName:'线路',// 采购类型名称
 					fromCity:'',// 出发地
 					goCity:'',// 目的地
+					selectDays:'',//行程天数
 					fromTime:'',// 出发时间
 					backTime:'',// 返程时间
 					ticketType:'',// 机票航程类型
 					peopleNum:'',// 成人数量
 					childNum:'',// 儿童数量
+					pDesc:'',// 附加说明
+					isShowPhone: 0,// 是否显示电话
+					trafficType:'',// 出行方式
+					
 				},
 			}
 		},
@@ -275,6 +283,14 @@
 				this.publishInfo.selectTypeName = selected.text;
 				this.popupVisible = false;
 			},
+			// 发布采购
+			onSelect(){
+				let reqInfo = {};
+				if(this.publishInfo.selectType == 10){
+					reqInfo.selectType = this.publishInfo.selectType;
+				}
+				
+			}
 		},
 		mounted() {
 		},

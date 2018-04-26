@@ -36,7 +36,7 @@
 			</ul>
 			<!--消息部分-->
 			<ul class="mui-table-view aby-sysMsg">
-				<li class="mui-table-view-cell mui-media space">
+				<li class="mui-table-view-cell mui-media space" @click="toMsgList">
 					<aby-icon-color type="myinquiry"></aby-icon-color>
 					<!--<img class="mui-media-object mui-pull-left imgMsg" src="../../static/images/ico/ico_msgbar_3x.png">-->
 					<div class="mui-media-body aby-font-Black mui-navigate-right">
@@ -128,6 +128,7 @@
 						data: ''
 					}
 				],
+				msgList:[]
 			}
 		},
 		methods: {

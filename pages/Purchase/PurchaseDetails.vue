@@ -148,73 +148,81 @@
 					</ul>
 					<!--导游询价-->
 					<ul class="mui-table-view" v-if="data.selectType == 60">
-						<h4>寻找嘉兴导游</h4>
+						<h4>{{data.pbTitle}}</h4>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">目的地</div>
-								<div class="mui-media-body mui-text-right">嘉兴</div>
+								<div class="mui-media-body mui-text-right">{{data.pbRoadLine}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">接团地</div>
-								<div class="mui-media-body mui-text-right">嘉兴</div>
+								<div class="mui-media-body mui-text-right">{{data.pbAddress}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">出行时间</div>
-								<div class="mui-media-body mui-text-right">2018-07-14</div>
+								<div class="mui-media-body mui-text-right">{{data.pbDateTime}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">天数</div>
-								<div class="mui-media-body mui-text-right">7天</div>
+								<div class="mui-media-body mui-text-right">{{data.pbDays}}天</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">导服费</div>
-								<div class="mui-media-body mui-text-right">500元／天</div>
+								<div class="mui-media-body mui-text-right">{{data.pbDayFee}}元／天</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">定金</div>
-								<div class="mui-media-body mui-text-right">500元</div>
+								<div class="mui-media-body mui-text-right">{{data.pbDepositFee}}元</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">性别</div>
-								<div class="mui-media-body mui-text-right">女</div>
+								<div class="mui-media-body mui-text-right">{{data.pbSex}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">精通语言</div>
-								<div class="mui-media-body mui-text-right">中文</div>
+								<div class="mui-media-body mui-text-right">{{data.pbLanguges}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">从业年限</div>
-								<div class="mui-media-body mui-text-right">3年</div>
+								<div class="mui-media-body mui-text-right">{{data.pbYears}}年</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">业务范围</div>
-								<div class="mui-media-body mui-text-right">不限</div>
+								<div class="mui-media-body mui-text-right">{{data.pbBranched}}</div>
 							</a>
 						</li>
 					</ul>
 				</div>
 				<div class="aby-detail-line"></div>
-				<div class="aby-detail-remarks">
-					<p>备注</p>
-					<p>{{data.selectDesc}}</p>
+				<div v-if="data.selectType == 60">
+					<div class="aby-detail-remarks" v-if="data.pbDetail">
+						<p>备注</p>
+						<p>{{data.pbDetail}}</p>
+					</div>
+				</div>
+				<div v-else>
+					<div class="aby-detail-remarks" v-if="data.selectDesc">
+						<p>备注</p>
+						<p>{{data.selectDesc}}</p>
+					</div>
 				</div>
 				<div class="aby-detail-line"></div>
 				<div class="aby-detail-publisher">

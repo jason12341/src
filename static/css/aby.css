@@ -52,8 +52,8 @@ body {
 }
 
 .mui-bar-nav {
-    -webkit-box-shadow: 0 0px 0px #ccc;
-    box-shadow: 0 0px 0px #ccc;
+	-webkit-box-shadow: 0 0px 0px #ccc;
+	box-shadow: 0 0px 0px #ccc;
 }
 
 .content {
@@ -79,39 +79,26 @@ body {
 
 
 /*左右滑动*/
+.Router {
+     position: absolute;
+     width: 100%;
+     transition: all .2s ease;
+}
 
-.slide-left-enter-active,
+.slide-left-enter,
+ .slide-right-leave-active {
+     opacity: 0;
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+}
+
 .slide-left-leave-active,
-.slide-right-enter-active,
-.slide-right-leave-active {
-	will-change: transform;
-	transition: all 250ms;
-	height: 100%;
-	top: 0;
-	position: absolute;
-	backface-visibility: hidden;
-	perspective: 1000;
-}
-
-.slide-left-enter {
-	opacity: 0;
-	transform: translate3d(-100%, 0, 0);
-}
-
-.slide-left-leave-active {
-	opacity: 0;
-	transform: translate3d(100%, 0, 0);
-}
-
 .slide-right-enter {
-	opacity: 0;
-	transform: translate3d(100%, 0, 0);
+     opacity: 0;
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100% 0);
 }
 
-.slide-right-leave-active {
-	opacity: 0;
-	transform: translate3d(-100%, 0, 0);
-}
 
 .fade-enter-active,
 .fade-leave-active {
@@ -197,9 +184,10 @@ body {
 	_display: inline
 }
 
-.pt-45{
+.pt-45 {
 	padding-top: 45px;
 }
+
 
 /*-----------------------------------------------间距样式-----------------------------------------------*/
 
@@ -310,9 +298,12 @@ small {
 	font-weight: 400;
 }
 
-.mui-navigate-right:after, .mui-push-right:after {
-    right: 10px;
+.mui-navigate-right:after,
+.mui-push-right:after {
+	right: 10px;
 }
+
+
 /*-----------------------------------------按钮样式----------------------------------------*/
 
 
@@ -668,9 +659,11 @@ small {
 .mint-navbar .mint-tab-item .mint-tab-item-label {
 	font-size: 14px!important;
 }
+
 .mui-bar-tab .mui-tab-item.mui-active {
-    color: #08C7B5;
+	color: #08C7B5;
 }
+
 .mui-bar {
-    background-color: #FFFFFF;
+	background-color: #FFFFFF;
 }
