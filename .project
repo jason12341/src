@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>ABY_V3</name>
+=======
+	<name>ABYTY_V3_GitHub</name>
+>>>>>>> bc07cc98b78b3a3447519f91a2561e3314c020ba
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +20,11 @@
 	</natures>
 	<filteredResources>
 		<filter>
+<<<<<<< HEAD
 			<id>1524713621006</id>
+=======
+			<id>1524714085953</id>
+>>>>>>> bc07cc98b78b3a3447519f91a2561e3314c020ba
 			<name></name>
 			<type>26</type>
 			<matcher>

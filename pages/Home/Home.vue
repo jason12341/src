@@ -44,7 +44,7 @@
 			</li>
 		</ul>
 		<!--活动模块部分-->
-		<!--<div class="module space">
+		<div class="module space">
 			<table class="table table-bordered table-striped">
 				<tbody>
 					<tr>
@@ -62,31 +62,6 @@
 						<td class="moduleHotel">
 							<img src="../../static/images/module/module_hotel_3x.png" />
 							
-						</td>
-						<td class="modulePlane">
-							<img src="../../static/images/module/module_plane_3x.png" />
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>-->
-		<div class="pace module">
-			<table class="table table-bordered table-striped">
-				<tbody>
-					<tr>
-						<td rowspan="2" class="moduleSale">
-							<img src="../../static/images/module/module_sale_3x.png" />
-						</td>
-						<td class="moduleSupplier">
-							<img src="../../static/images/module/module_supplier_3x.png" />
-						</td>
-						<td class="moduleLine">
-							<img src="../../static/images/module/module_line_3x.png" />
-						</td>
-					</tr>
-					<tr>
-						<td class="moduleHotel">
-							<img src="../../static/images/module/module_hotel_3x.png" />
 						</td>
 						<td class="modulePlane">
 							<img src="../../static/images/module/module_plane_3x.png" />
@@ -242,17 +217,33 @@
 	
 	.module {
 		background-color: #FFFFFF;
-		padding: 2%;;
+		padding: 8px;
 	}
 	
 	.module img {
-		vertical-align: bottom;
+		vertical-align: top;
 	}
 	
+	.moduleSale {
+		width: 32.0333vw;
+	}
+	
+	.moduleSale img {
+		width: 100%;
+	}
+	
+	.module img {
+		width: 100%;
+	}
+	
+	.modulePlane,
+	.moduleHotel {
+		padding-left: 4px;
+	}
 	
 	.moduleSupplier,
 	.moduleLine {
-		padding-bottom: 2px;
+		padding-left: 4px;
 	}
 	
 	.modulePlane,
@@ -260,30 +251,13 @@
 		padding-top: 2px;
 	}
 	
-	.moduleSupplier,.moduleHotel {
-		padding-left: 4px;
-	}
-	.moduleLine,.modulePlane{
-		padding-left: 4px;
-	}
-	/*.table-bordered>tbody>tr>th,
+	.table-bordered>tbody>tr>th,
 	.table-bordered>tfoot>tr>th,
 	.table-bordered>thead>tr>td,
 	.table-bordered>tbody>tr>td,
 	.table-bordered>tfoot>tr>td {
 		width: 32vw;
 		height: 20.4869vw;
-	}*/
-	/*.aa{
-		padding: 2%;
-		background-color: #FFFFFF;
-	}*/
-	.table-bordered>tbody>tr>th,
-	.table-bordered>tfoot>tr>th,
-	.table-bordered>thead>tr>td,
-	.table-bordered>tbody>tr>td,
-	.table-bordered>tfoot>tr>td {
-		width: 33%;
 	}
 	.table-bordered img{
 		width: 100%;
