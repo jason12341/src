@@ -273,7 +273,9 @@
 					pDesc:'',// 附加说明
 					isShowPhone: 0,// 是否显示电话
 					trafficType:'',// 出行方式
-					
+					liveTime:'',// 入住时间
+					leaveTime:'',// 离店时间
+					playScenicTime:'',// 游玩时间
 				},
 			}
 		},

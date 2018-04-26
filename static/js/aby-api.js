@@ -12,7 +12,7 @@ import cryptoJS from '../lib/crypt/crypto-js.js'
 const authKey = '@WSXvfr4^YHN,ki8';
 const authVi = '!QAZCDE#5tgbmju7';
 // 服务器地址
-const AbyUrl = 'http://114.215.202.155/';
+const AbyUrl = 'http://www.ai-by.com/';
 
 // axios配置
 axios.defaults.baseURL = AbyUrl + 'aby/';
