@@ -64,7 +64,37 @@
 				this.keyword = this.$route.params.keyword;
 				this.tabSelect = this.$route.params.tabSelect||'line';
 				this.tabSelectId = this.$route.params.tabSelectId||0;
-				
+				if(this.$route.params.tabSelect == 'line'){
+					this.tabList = [
+						{
+							id:0,
+							title: '产品',
+							type: 'line',
+							data: []
+						},
+						{
+							id:1,
+							title: '供应商',
+							type: 'supplier',
+							data: []
+						}
+					];
+				}else{
+					this.tabList = [
+						{
+							id:1,
+							title: '供应商',
+							type: 'supplier',
+							data: []
+						},
+						{
+							id:0,
+							title: '产品',
+							type: 'line',
+							data: []
+						},
+					];
+				}
 				this.getList();
 			},
 			// 重写back方法
