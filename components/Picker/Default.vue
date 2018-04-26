@@ -3,7 +3,7 @@
 		<div class="divSure">
 			<span class="btnSure" @click="onConfirm">确定</span>
 		</div>
-		<picker :slots="slots" @change="onValuesChange" value-key="text">	
+		<picker v-for="(li,i) in slotsList" :key="i" :slots="li" @change="onValuesChange" value-key="text">	
 		</picker>
 	</div>
 </template>
@@ -15,15 +15,16 @@
 		components: {
 			Picker
 		},
-		props: ['list'],
+		props: ['list','id'],
 		data() {
 			return {
 				slots: [{
 					flex: 1,
-					values: this.list,
+					values: '',
 					className: 'slot1',
 					textAlign: 'center'
 				}],
+				slotsList:[],
 				selected:''
 			}
 		},
@@ -37,7 +38,21 @@
 				this.$emit('onConfirm',this.selected);
 			}
 		},
-		mounted() {},
+		mounted() {
+			let info = {};
+			info.flex = 1;
+			info.values = this.list;
+			info.className = 'slot1';
+			info.textAlign = 'center';
+			let arr = [];
+			arr.push(info)
+			this.slotsList.push(arr)
+		},
+		watch: {
+			list(val){
+				this.slots[0].values = val;
+			}
+		}
 	}
 </script>
 

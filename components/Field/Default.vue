@@ -19,11 +19,11 @@
 <script>
 	export default {
 		components: {},
-		props: ['placeholder', 'type', 'className', 'iclassName', 'disabled', 'modelId', 'disableClear', 'rows'],
+		props: ['placeholder', 'type', 'className', 'iclassName', 'disabled', 'modelId', 'disableClear', 'rows','modelVal'],
 		data() {
 			return {
 				dlabelName: this.title || '',
-				dmodelVal: '',
+				dmodelVal: this.modelVal||'',
 				dClass: this.className,
 				iclass: this.iclassName,
 				dplaceholder: this.placeholder,
@@ -37,7 +37,7 @@
 
 		},
 		mounted() {
-
+			
 		},
 		watch: {
 			title(val) {
@@ -56,6 +56,9 @@
 					if(this.$parent[list[0]])this.$parent[list[0]][list[1]][list[2]] = val;
 					if(this.$parent.$parent[list[0]])this.$parent.$parent[list[0]][list[1]][list[2]] = val;
 				}
+			},
+			modelVal(val){
+				this.dmodelVal = val;
 			}
 		}
 	}

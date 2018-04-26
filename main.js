@@ -37,6 +37,7 @@ import AbyIcon from './components/Icon/Default.vue'
 import AbyIconColor from './components/Icon/IconColor.vue'
 import AbyFonts from './components/Fonts/Default.vue'
 import AbyPicker from './components/Picker/Default.vue'
+import AbyDatePicker from './components/Picker/DateTime.vue'
 import AbyButton from './components/Button/Default.vue'
 import AbyNavbar from './components/Navbar/Default.vue'
 import AbyTab from './components/Navbar/Tab.vue'
@@ -60,6 +61,7 @@ Vue.component('aby-pull',AbyPull)
 Vue.component('aby-tab',AbyTab)
 Vue.component('aby-field',AbyField)
 Vue.component('aby-loading',AbyLoading)
+Vue.component('aby-date-picker',AbyDatePicker)
 
 require('./static/js/web.js')
 //require('./static/js/app.js')

@@ -4,18 +4,15 @@
 		</aby-header>
 		<div class="mui-content" slot="content">
 			<mt-popup v-model="popupVisible" position="bottom">
-				<aby-picker @onConfirm="onSelectPicker" :list="typeList"></aby-picker>
+				<aby-picker @onConfirm="onSelectPicker" id="selectType" :list="typeList"></aby-picker>
 			</mt-popup>
-			<div class="mui-input-group">
-				<div class="mui-input-row aby-input-row">
-					<label>采购类型</label>
-					<input type="text" v-model="publishInfo.selectTypeName" placeholder="请选择采购类型" readonly="readonly" @click="popupVisible=!popupVisible">
-					<span class="aby-navigate-right"></span>
-				</div>
-			</div>
+			<mt-popup v-model="popupTrafficType" position="bottom">
+				<aby-picker @onConfirm="onSelectPicker" id="trafficType" :list="trafficTypeList"></aby-picker>
+			</mt-popup>
+			<aby-date-picker ref="datePicker"></aby-date-picker>
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
-					<aby-field  v-model="publishInfo.selectTypeName" className="aby-input-default" placeholder="请选择采购类型" type="text" @click="popupVisible=!popupVisible" disabled="disabled">
+					<aby-field modelId="publishInfo.selectTypeName" className="aby-input-default" :modelVal="publishInfo.selectTypeName" placeholder="请选择采购类型" type="text" @click.native="popupVisible=!popupVisible" disabled="disabled">
 						<label class="inLabel" slot="label">采购类型</label>
 						<span slot="allowRight"><i class="mint-cell-allow-right"></i></span>
 					</aby-field>
@@ -81,13 +78,13 @@
 			<!--线路、导游-->
 			<ul class="mui-table-view space" v-if="publishInfo.selectType==10||publishInfo.selectType==60">
 				<li class="mui-table-view-cell">
-					<aby-field className="aby-input-default" placeholder="请选择出行时间" type="text" disabled="disabled">
+					<aby-field className="aby-input-default" @click.native="onSelectDatePicker('publishInfo.fromTime')" :modelVal="publishInfo.fromTime" modelId="publishInfo.fromTime" placeholder="请选择出行时间" type="text" disabled="disabled">
 						<label class="inLabel" slot="label">出行时间</label>
 						<span slot="allowRight"><i class="mint-cell-allow-right"></i></span>
 					</aby-field>
 				</li>
 				<li class="mui-table-view-cell">
-					<aby-field className="aby-input-default" placeholder="请输入出行天数" type="number">
+					<aby-field className="aby-input-default" modelId="publishInfo.selectDays" placeholder="请输入出行天数" type="number">
 						<label class="inLabel" slot="label">天数</label>
 					</aby-field>
 				</li>
@@ -196,17 +193,17 @@
 				<div class="mui-input-row aby-input-row">
 					<label>成人</label>
 					<div class="mui-numbox" data-numbox-step='1' data-numbox-min='0'>
-						<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-						<input class="mui-numbox-input" type="number" />
-						<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+						<button class="mui-btn mui-numbox-btn-minus" type="button" @click="onRedNum(1)">-</button>
+						<input class="mui-numbox-input" type="number" v-model="publishInfo.peopleNum" />
+						<button class="mui-btn mui-numbox-btn-plus" type="button" @click="onAddNum(1)">+</button>
 					</div>
 				</div>
 				<div class="mui-input-row aby-input-row">
 					<label>儿童</label>
 					<div class="mui-numbox" data-numbox-step='1' data-numbox-min='0'>
-						<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
-						<input class="mui-numbox-input" type="number" />
-						<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+						<button class="mui-btn mui-numbox-btn-minus" type="button" @click="onRedNum(2)">-</button>
+						<input class="mui-numbox-input" type="number" v-model="publishInfo.childNum" />
+						<button class="mui-btn mui-numbox-btn-plus" type="button" @click="onAddNum(2)">+</button>
 					</div>
 				</div>
 			</div>
@@ -214,7 +211,7 @@
 			<!--线路-->
 			<ul class="mui-table-view" v-if="publishInfo.selectType==10">
 				<li class="mui-table-view-cell">
-					<aby-field className="aby-input-default" placeholder="请选择交通方式" type="text" disabled="disabled">
+					<aby-field className="aby-input-default" @click.native="popupTrafficType=!popupTrafficType" placeholder="请选择交通方式" type="text" disabled="disabled">
 						<label class="inLabel" slot="label">交通方式</label>
 						<span slot="allowRight"><i class="mint-cell-allow-right"></i></span>
 					</aby-field>
@@ -272,18 +269,13 @@
 			<div class="space"></div>
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
-					<aby-field className="aby-input-default" placeholder="请输入联系人" type="text">
-						<label class="inLabel" slot="label">联系人</label>
-					</aby-field>
-				</li>
-				<li class="mui-table-view-cell">
-					<aby-field className="aby-input-default" placeholder="请输入联系电话" type="tel">
+					<aby-field modelId="publishInfo.contactPhone" :modelVal="publishInfo.contactPhone" className="aby-input-default" placeholder="请输入联系电话" type="tel">
 						<label class="inLabel" slot="label">联系电话</label>
 					</aby-field>
 				</li>
 			</ul>
 			<div class="space"></div>
-			<aby-button title="发布" class="aby-button-fixed"></aby-button>
+			<aby-button title="发布" class="aby-button-fixed" @click.native="onSelect"></aby-button>
 		</div>
 	</aby-page>
 
@@ -319,6 +311,7 @@
 						value: 60
 					}
 				],
+				popupTrafficType:false,
 				trafficTypeList:[],// 出行方式列表
 				publishInfo:{
 					title:'',// 标题
@@ -329,11 +322,12 @@
 					selectDays:'',//行程天数
 					fromTime:'',// 出发时间
 					backTime:'',// 返程时间
-					ticketType:'',// 机票航程类型
-					peopleNum:'',// 成人数量
-					childNum:'',// 儿童数量
-					pDesc:'',// 附加说明
 					isShowPhone: 0,// 是否显示电话
+					contactPhone:this.$store.state.userPhone,// 联系人电话
+					ticketType:'',// 机票航程类型
+					peopleNum:0,// 成人数量
+					childNum:0,// 儿童数量
+					pDesc:'',// 附加说明
 					trafficType:'',// 出行方式
 					liveTime:'',// 入住时间
 					leaveTime:'',// 离店时间
@@ -342,21 +336,60 @@
 			}
 		},
 		methods: {
+			// 选择采购类型
 			onSelectPicker(selected) {
 				this.publishInfo.selectType = selected.value;
 				this.publishInfo.selectTypeName = selected.text;
 				this.popupVisible = false;
 			},
+			// 选择时间
+			onSelectDatePicker(modelId){
+				this.$refs.datePicker.openPicker(modelId);
+			},
 			// 发布采购
 			onSelect() {
 				let reqInfo = {};
+				reqInfo.selectType = this.publishInfo.selectType;
 				if(this.publishInfo.selectType == 10) {
-					reqInfo.selectType = this.publishInfo.selectType;
+					if(this.publishInfo.fromCity == '')return this.$toast("出发地不能为空");
+					if(this.publishInfo.goCity == '')return this.$toast("目的地不能为空");
+					if(this.publishInfo.fromTime == '')return this.$toast("请选择出发时间");
+					if(this.publishInfo.selectDays == '')return this.$toast("请输入行程天数");
+					if(this.publishInfo.peopleNum == '')return this.$toast("请输入成人数量");
+					if(this.publishInfo.contactPhone == '')return this.$toast("请输入联系电话");
 				}
 
+			},
+			// 减少
+			onRedNum(id){
+				if(id == 1 && this.publishInfo.peopleNum > 0){
+					this.publishInfo.peopleNum = this.publishInfo.peopleNum - 1;
+				}else if(id == 2 && this.childNum > 0){
+					this.publishInfo.childNum = this.publishInfo.childNum - 1;
+				}
+			},
+			// 增加
+			onAddNum(id){
+				if(id == 1){
+					this.publishInfo.peopleNum = this.publishInfo.peopleNum + 1;
+				}else if(id == 2){
+					this.publishInfo.childNum = this.publishInfo.childNum + 1;
+				}
+				console.log(this.publishInfo.peopleNum)
 			}
 		},
-		mounted() {},
+		mounted() {
+			this.$abyApi.Sys.getDict('trafficType','',(res)=>{
+				let dlist = []
+				for(let i=0,len=res.dicList.length;i<len;i++){
+					let info = {};
+					info.text = res.dicList[i].dicName;
+					info.value = res.dicList[i].dicValue;
+					dlist.push(info);
+				}
+				this.trafficTypeList = dlist;
+			})
+		},
 	}
 </script>
 
