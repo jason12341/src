@@ -319,23 +319,25 @@
 						value: 60
 					}
 				],
-				trafficTypeList: [], // 出行方式列表
-				publishInfo: {
-					title: '', // 标题
-					selectType: 10, // 采购类型数值
-					selectTypeName: '线路', // 采购类型名称
-					fromCity: '', // 出发地
-					goCity: '', // 目的地
-					selectDays: '', //行程天数
-					fromTime: '', // 出发时间
-					backTime: '', // 返程时间
-					ticketType: '', // 机票航程类型
-					peopleNum: '', // 成人数量
-					childNum: '', // 儿童数量
-					pDesc: '', // 附加说明
-					isShowPhone: 0, // 是否显示电话
-					trafficType: '', // 出行方式
-
+				trafficTypeList:[],// 出行方式列表
+				publishInfo:{
+					title:'',// 标题
+					selectType:10,// 采购类型数值
+					selectTypeName:'线路',// 采购类型名称
+					fromCity:'',// 出发地
+					goCity:'',// 目的地
+					selectDays:'',//行程天数
+					fromTime:'',// 出发时间
+					backTime:'',// 返程时间
+					ticketType:'',// 机票航程类型
+					peopleNum:'',// 成人数量
+					childNum:'',// 儿童数量
+					pDesc:'',// 附加说明
+					isShowPhone: 0,// 是否显示电话
+					trafficType:'',// 出行方式
+					liveTime:'',// 入住时间
+					leaveTime:'',// 离店时间
+					playScenicTime:'',// 游玩时间
 				},
 			}
 		},

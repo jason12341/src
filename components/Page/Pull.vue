@@ -77,6 +77,9 @@
 			loadBottom() {
 				setTimeout(() => {
 					this.$parent.getPullUp((ret) => {
+						if(ret.length == 0){
+							this.$tool.toast('没有更多内容了');
+						}
 						this.allLoaded = false;
 						this.$refs.loadmore.onBottomLoaded();
 					});
