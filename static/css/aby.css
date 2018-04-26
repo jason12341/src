@@ -79,26 +79,26 @@ body {
 
 
 /*左右滑动*/
+
 .Router {
-     position: absolute;
-     width: 100%;
-     transition: all .2s ease;
+	position: absolute;
+	width: 100%;
+	transition: all .2s ease;
 }
 
 .slide-left-enter,
- .slide-right-leave-active {
-     opacity: 0;
-    -webkit-transform: translate(-100%, 0);
-    transform: translate(-100%, 0);
+.slide-right-leave-active {
+	opacity: 0;
+	-webkit-transform: translate(-100%, 0);
+	transform: translate(-100%, 0);
 }
 
 .slide-left-leave-active,
 .slide-right-enter {
-     opacity: 0;
-    -webkit-transform: translate(100%, 0);
-    transform: translate(100% 0);
+	opacity: 0;
+	-webkit-transform: translate(100%, 0);
+	transform: translate(100% 0);
 }
-
 
 .fade-enter-active,
 .fade-leave-active {
@@ -214,7 +214,13 @@ body {
 .mui-table-view:after,
 .mui-table-view-cell:after,
 .mui-card-footer:before,
-.mui-card-header:after {
+.mui-card-header:after,
+.mui-input-group:before,
+.mui-input-group:after,
+.mui-table-view:before,
+.mui-table-view:after,
+.mui-table-view-cell:after
+{
 	background-color: #F0F0F0;
 }
 
@@ -591,6 +597,10 @@ small {
 
 .aby-font-white {
 	color: #FFFFFF;
+}
+
+.aby-font-gray {
+	color: #AAAAAA;
 }
 
 
