@@ -5,43 +5,7 @@
 			<header-search slot="hSearch" disabled="true" @click.native="onSearch"></header-search>
 			<aby-icon slot="right" class="mui-icon mui-pull-right icon-plus" type="plus"></aby-icon>
 		</aby-header>
-<<<<<<< HEAD
 		<aby-banner pageType="1"></aby-banner>
-		<!--菜单部分-->
-		<ul class="mui-table-view mui-grid-view mui-grid-9 home-menu">
-			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-				<router-link :to="{ name:'project' }">
-					<img src="../../static/images/btn/btn_line_3x.png" />
-					<div class="mui-media-body">线路</div>
-				</router-link>
-			</li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-				<router-link :to="{ name:'hotelSearch' }">
-					<img src="../../static/images/btn/btn_hotel_3x.png" />
-					<div class="mui-media-body">酒店</div>
-				</router-link>
-			</li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-				<router-link :to="{ name:'sport' }">
-					<img src="../../static/images/btn/btn_spot_3x.png" />
-					<div class="mui-media-body">景点</div>
-				</router-link>
-			</li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-				<router-link :to="{ name:'guide' }">
-					<img src="../../static/images/btn/btn_guide_3x.png" />
-					<div class="mui-media-body">导游</div>
-				</router-link>
-			</li>
-		</ul>
-		<!--消息部分-->
-		<ul class="mui-table-view aby-sysMsg">
-			<li class="mui-table-view-cell mui-media space">
-				<img class="mui-media-object mui-pull-left imgMsg" src="../../static/images/ico/ico_msgbar_3x.png">
-				<div class="mui-media-body aby-font-Black mui-navigate-right">
-					<p class='mui-ellipsis'>· 您有一条新的订单</p>
-					<p class='mui-ellipsis'>· 供应商推荐：猜你对以下供应商感兴趣</p>
-=======
 		<div class="mui-content content">
 			<aby-banner pageType="1"></aby-banner>
 			<!--菜单部分-->
@@ -74,8 +38,7 @@
 			<!--消息部分-->
 			<ul class="mui-table-view aby-sysMsg">
 				<li class="mui-table-view-cell mui-media space">
-					<aby-icon-color type="myinquiry"></aby-icon-color>
-					<!--<img class="mui-media-object mui-pull-left imgMsg" src="../../static/images/ico/ico_msgbar_3x.png">-->
+					<img class="mui-media-object mui-pull-left imgMsg" src="../../static/images/ico/ico_msgbar_3x.png">
 					<div class="mui-media-body aby-font-Black mui-navigate-right">
 						<p class='mui-ellipsis'>· 您有一条新的订单</p>
 						<p class='mui-ellipsis'>· 供应商推荐：猜你对以下供应商感兴趣</p>
@@ -118,7 +81,6 @@
 					<list-line v-if="li.type=='line'" :list="li.data"></list-line>
 					<list-sport v-if="li.type=='sport'" :list="li.data"></list-sport>
 					<list-hotel v-if="li.type=='hotel'" :list="li.data"></list-hotel>
->>>>>>> 79f7541374643c1f7109843acdbe91ebd72521eb
 				</div>
 			</aby-tab>
 			<div class="aby-title-center linebottom" style="padding-bottom: 80px;">
