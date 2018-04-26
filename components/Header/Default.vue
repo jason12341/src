@@ -1,6 +1,6 @@
 <template>
 	<div class="header">
-		<header class="mui-bar mui-bar-nav" :class="headerTransparent?'transparent':''">
+		<header class="mui-bar mui-bar-nav" :class="headerTransparent?'transparent':''" style="z-index: 99999999999999999999999;">
 			<slot name="back"><aby-back @click.native="goBack(page)"></aby-back></slot>
 			<slot name="hSearch"></slot>
 			<slot name="select"></slot>

@@ -1,5 +1,5 @@
 <template>
-	<div class="page">
+	<div class="page" :class="page=='index'?'pt-45':''">
 		<slot name="header"></slot>
 		<div class="mui-content">
 			<div class="page-loadmore">
@@ -21,7 +21,7 @@
 
 <script>
 	export default {
-		props: ['title'],
+		props: ['title','page'],
 		components: {},
 		data() {
 			return {

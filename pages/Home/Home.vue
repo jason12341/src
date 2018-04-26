@@ -1,5 +1,5 @@
 <template>
-	<div class="mui-content" id="content">
+	<div>
 		<aby-header title="" slot="header">
 			<div slot="back"></div>
 			<header-search slot="hSearch" disabled="true" @click.native="onSearch"></header-search>
@@ -61,7 +61,7 @@
 					<tr>
 						<td class="moduleHotel">
 							<img src="../../static/images/module/module_hotel_3x.png" />
-							
+
 						</td>
 						<td class="modulePlane">
 							<img src="../../static/images/module/module_plane_3x.png" />
@@ -146,7 +146,17 @@
 			onSearch() {
 				this.$router.replace({
 					name: 'searchIndex',
-				});
+				}); <<
+				<< << < HEAD
+					===
+					=== =
+			},
+			// 消息通知
+			toMsgList() {
+				this.$router.push({
+					name: 'msgSystem',
+				}); >>>
+				>>> > fc6eb061d2ca6f2f64c3e87d70cf8cc73752ede3
 			}
 		},
 		mounted() {
@@ -251,20 +261,41 @@
 		padding-top: 2px;
 	}
 	
-	.table-bordered>tbody>tr>th,
+	<<<<<<< HEAD .table-bordered>tbody>tr>th,
+	=======
+	/*.table-bordered>tbody>tr>th,
+>>>>>>> fc6eb061d2ca6f2f64c3e87d70cf8cc73752ede3
 	.table-bordered>tfoot>tr>th,
 	.table-bordered>thead>tr>td,
 	.table-bordered>tbody>tr>td,
 	.table-bordered>tfoot>tr>td {
 		width: 32vw;
 		height: 20.4869vw;
+<<<<<<< HEAD
+=======
+	}*/
+	
+	.aa {
+		padding: 2%;
+		background-color: #FFFFFF;
 	}
-	.table-bordered img{
+	
+	.table-bordered>tbody>tr>th,
+	.table-bordered>tfoot>tr>th,
+	.table-bordered>thead>tr>td,
+	.table-bordered>tbody>tr>td,
+	.table-bordered>tfoot>tr>td {
+		width: 33%;
+		>>>>>>>fc6eb061d2ca6f2f64c3e87d70cf8cc73752ede3
+	}
+	
+	.table-bordered img {
 		width: 100%;
 		vertical-align: bottom;
 	}
 	/*消息部分图标*/
-	.imgMsg{
+	
+	.imgMsg {
 		height: auto;
 		margin-top: 3px;
 	}

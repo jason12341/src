@@ -1,6 +1,6 @@
 <template>
 	<div class="page">
-		<div class="content" @scroll="scroll" ref="content">
+		<div @scroll="scroll" ref="content">
 			<transition name="">
 				<keep-alive>
 					<router-view v-if="!$route.meta.noKeepAlive">

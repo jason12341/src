@@ -3,7 +3,7 @@
 		<aby-header title="消息">
 			<div slot="back"></div>
 		</aby-header>
-		<ul class="mui-table-view" style="margin-top: 1px;">
+		<ul class="mui-table-view content" style="margin-top: 1px;">
 			<li class="mui-table-view-cell mui-media">
 				<a>
 					<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png">

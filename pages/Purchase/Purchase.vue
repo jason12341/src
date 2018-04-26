@@ -1,5 +1,5 @@
 <template>
-	<aby-pull>
+	<aby-pull page="index">
 		<aby-header slot="header">
 			<div slot="back"></div>
 			<header-select slot="select" title="全部询价" @eventSelectBack="eventBack" :selectList="selectList"></header-select>
