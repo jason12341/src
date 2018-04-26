@@ -36,7 +36,8 @@
 		<!--消息部分-->
 		<ul class="mui-table-view aby-sysMsg">
 			<li class="mui-table-view-cell mui-media space">
-				<img class="mui-media-object mui-pull-left imgMsg" src="../../static/images/ico/ico_msgbar_3x.png">
+				<aby-icon-color type="myinquiry"></aby-icon-color>
+				<!--<img class="mui-media-object mui-pull-left imgMsg" src="../../static/images/ico/ico_msgbar_3x.png">-->
 				<div class="mui-media-body aby-font-Black mui-navigate-right">
 					<p class='mui-ellipsis'>· 您有一条新的订单</p>
 					<p class='mui-ellipsis'>· 供应商推荐：猜你对以下供应商感兴趣</p>
