@@ -3,15 +3,15 @@
 		<aby-header title="询价详情" slot="header"></aby-header>
 		<div slot="content" class="mui-content">
 			<div class="aby-detail" v-if="data">
-				<div class="aby-detail-header">
-					<aby-icon className="mui-pull-right" type="clock"></aby-icon>
+				<div class="aby-detail-header font-clock">
+					<aby-icon type="clock" class="clock"></aby-icon>
 					<span :id="data.selectId"></span>
-					<aby-icon-color class="ptype" v-if="data.selectType == 10" type="line"></aby-icon-color>
-					<aby-icon-color class="ptype" v-if="data.selectType == 20" type="hotel"></aby-icon-color>
-					<aby-icon-color class="ptype" v-if="data.selectType == 30" type="pticket"></aby-icon-color>
-					<aby-icon-color class="ptype" v-if="data.selectType == 40" type="planhotel"></aby-icon-color>
-					<aby-icon-color class="ptype" v-if="data.selectType == 50" type="sticket"></aby-icon-color>
-					<aby-icon-color class="ptype" v-if="data.selectType == 60" type="guide"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 10" type="line"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 20" type="hotel"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 30" type="pticket"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 40" type="planhotel"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 50" type="sticket"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 60" type="guide"></aby-icon-color>
 				</div>
 				<div class="aby-detail-line"></div>
 				<div class="aby-detail-content">
@@ -217,7 +217,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="aby-detail-line"></div>
+				<div class="aby-detail-linegray"></div>
 				<div v-if="data.selectType == 60">
 					<div class="aby-detail-remarks" v-if="data.pbDetail">
 						<p>备注</p>
@@ -245,8 +245,8 @@
 					</ul>
 				</div>
 				<div class="aby-detail-line"></div>
-				<div class="aby-detail-operation mui-text-center">
-					<aby-icon className="mui-pull-message" type="message"></aby-icon>
+				<div class="aby-detail-operation mui-text-center aby-font-blue">
+					<aby-icon type="rob"></aby-icon>
 					联系卖家
 				</div>
 			</div>
@@ -263,36 +263,33 @@
 		},
 		data() {
 			return {
-				selectId:this.$route.params.selectId,
-				data:'',
+				selectId: this.$route.params.selectId,
+				data: '',
 			}
 		},
 		methods: {
-			
+
 		},
 		mounted() {
 			let reqInfo = {};
 			reqInfo.loading = 1;
 			reqInfo.selectId = this.selectId;
-			this.$abyApi.Select.getPublishDetail(reqInfo,(res)=>{
+			this.$abyApi.Select.getPublishDetail(reqInfo, (res) => {
 				this.data = res.cpSelect;
 				this.$refs.page.isLoading = false;
-			},(err)=>{this.$refs.page.isLoading = false;});
+			}, (err) => {
+				this.$refs.page.isLoading = false;
+			});
 		},
 	}
 </script>
 
 <style scoped>
-/*详情容器*/
+	/*详情容器*/
 	
 	.aby-detail {
 		padding: 10px;
 		margin: 0;
-	}
-	
-	.aby-detail-line {
-		background-color: #FFFFFF;
-		border-bottom: 1px dashed #DDDDDD;
 	}
 	
 	.aby-detail-header,
@@ -300,6 +297,20 @@
 	.aby-detail-remarks {
 		background-color: #FFFFFF;
 		padding: 17px;
+	}
+	
+	.aby-detail-header {
+		font-size: 14px;
+	}
+	
+	.aby-detail-header .clock {
+		font-size: 15px;
+	}
+	
+	.aby-detail-header .mui-pull-right {
+		width: 24px;
+		height: 24px;
+		margin-top: -2px;
 	}
 	
 	.aby-detail-content .mui-media-object {
@@ -316,8 +327,9 @@
 	}
 	
 	.aby-detail-content .mui-table-view-cell {
-		padding: 8px 15px;
+		padding: 8px;
 	}
+	
 	
 	.aby-detail-content h4 {
 		padding: 15px 15px;

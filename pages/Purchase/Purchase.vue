@@ -69,7 +69,7 @@
 					</div>
 				</div>
 				<div class="mui-card-footer">浏览（{{li.readCnt}}）
-					<span class="clock">
+					<span class="clock font-clock">
 						<aby-icon-color type="clock"></aby-icon-color>
 						<span :id="li.selectId"></span>
 					</span>
