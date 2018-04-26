@@ -24,8 +24,6 @@ import './static/css/icon.css'
 // 引入自定义js
 import AbyTool from './static/js/tool.js'
 import AbyApi from './static/js/aby-api.js'
-import AbyIcons from './static/js/iconfont.js'
-
 
 
 
@@ -34,7 +32,6 @@ import AbyPage from './components/Page/Default.vue'
 import AbyHeader from './components/Header/Default.vue'
 import AbyPull from './components/Page/Pull.vue'
 import AbyIcon from './components/Icon/Default.vue'
-import AbyIconColor from './components/Icon/IconColor.vue'
 import AbyFonts from './components/Fonts/Default.vue'
 import AbyPicker from './components/Picker/Default.vue'
 import AbyButton from './components/Button/Default.vue'
@@ -52,7 +49,6 @@ Vue.component('aby-page', AbyPage)
 Vue.component('aby-header', AbyHeader)
 Vue.component('aby-picker', AbyPicker)
 Vue.component('aby-icon',AbyIcon)
-Vue.component('aby-icon-color',AbyIconColor)
 Vue.component('aby-fonts',AbyFonts)
 Vue.component('aby-button',AbyButton)
 Vue.component('aby-navbar',AbyNavbar)

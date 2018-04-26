@@ -9,13 +9,6 @@
 		<transition :name="pageDirection">
 			<router-view v-if="$route.meta.noKeepAlive"></router-view>
 		</transition>
-
-		<!--<transition :name="pageDirection">
-			<navigation>
-				<router-view></router-view>
-			</navigation>
-		</transition>-->
-
 	</div>
 </template>
 

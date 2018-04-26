@@ -7,7 +7,9 @@
 					<slot name="navbar"><div style="padding-top: 45px;"></div></slot>
 					<slot name="explain"></slot>
 					<mt-loadmore ref="loadmore" :top-method="loadTop" :autoFill="loading" @translate-change="translateChange" @top-status-change="handleTopChange" :bottom-method="loadBottom" @bottom-status-change="handleBottomChange" :bottom-all-loaded="allLoaded">
-						<slot name="loadlist"></slot>
+						<div style="min-height: 500px;">
+							<slot name="loadlist"></slot>
+						</div>
 					</mt-loadmore>
 						
 					<div class="line-button"></div>

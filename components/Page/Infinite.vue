@@ -1,12 +1,14 @@
 <template>
 	<div class="page-infinite-wrapper" ref="wrapper" :style="{ height: wrapperHeight + 'px' }">
-		<div v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="50" style="margin-bottom: 60px;">
-			<slot name="loadlist"></slot>
+		<div v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="0" style="margin-bottom: 60px;">
+			<div style="min-height: 500px; padding-bottom: 60px;">
+				<slot name="loadlist"></slot>
+				<p v-show="loading" class="page-infinite-loading">
+					<mt-spinner type="fading-circle"></mt-spinner>
+					加载中...
+				</p>
+			</div>
 		</div>
-		<p v-show="loading" class="page-infinite-loading">
-			<mt-spinner type="fading-circle"></mt-spinner>
-			加载中...
-		</p>
 	</div>
 </template>
 <script>
@@ -24,9 +26,11 @@
 			loadMore() {
 				this.loading = true;
 				setTimeout(() => {
-					this.$emit("eventinfiniterBack",this.type);
-					this.loading = false;
-				}, 2500);
+					this.$emit("eventinfiniterBack",this.type,(res)=>{
+						this.loading = !res;
+					});
+				}, 1500);
+				this.loading = false;
 			}
 		},
 		mounted() {

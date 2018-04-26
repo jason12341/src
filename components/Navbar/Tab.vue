@@ -16,11 +16,11 @@
 <script>
 	export default {
 		components: {},
-		props: ['list', 'datas', 'page'],
+		props: ['list', 'datas', 'page','actSelect'],
 		data() {
 			return {
 				tabList: this.list,
-				selected: 0,
+				selected: this.actSelect||0,
 				pageType: this.page
 			}
 		},
@@ -30,7 +30,8 @@
 				this.$emit("eventTabBack", e);
 			}
 		},
-		mounted() {},
+		mounted() {
+		},
 	}
 </script>
 

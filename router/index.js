@@ -163,7 +163,12 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
 	/*判断页面是否需要缓存*/
-	const keepAliveAarrt = ['home','purchase','order','message','my','orderList']; //缓存页面
+	//缓存页面
+	const keepAliveAarrt = 
+		[
+		 	'home','purchase','order','message','my',
+		 	'orderList','searchIndexResult','searchResult'
+        ]; 
 	const fromKeepAlive = Vue.$tool.isInAarry(keepAliveAarrt, from.name);
 	const toKeepAlive = Vue.$tool.isInAarry(keepAliveAarrt, to.name);
 	if(fromKeepAlive && toKeepAlive) {

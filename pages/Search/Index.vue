@@ -8,7 +8,7 @@
 			</div>
 			<br style="clear: both;" />
 		</mt-search>
-		<aby-tab :list="tabList" page="indexSearch" slot="tab"></aby-tab>
+		<aby-tab :list="tabList" page="indexSearch" @eventTabBack="eventTab" slot="tab"></aby-tab>
 		<div>
 			<h5>搜索历史</h5>
 			<div>
@@ -28,14 +28,16 @@
 				searchType:this.$route.params.type,
 				list:[],
 				searchList:[],//搜索记录
+				tabSelect:'line',
+				tabSelectId:0,
 				tabList: [{
-						id:'pro',
+						id:0,
 						title: '产品',
 						type: 'line',
 						data: ''
 					},
 					{
-						id:'supplier',
+						id:1,
 						title: '供应商',
 						type: 'supplier',
 						data: ''
@@ -66,7 +68,9 @@
 					params: {
 						type: type,
 						keyword:value,
-						page:'index'
+						page:'index',
+						tabSelect:this.tabSelect,
+						tabSelectId:this.tabSelectId,
 					}
 				});
 			},
@@ -82,9 +86,16 @@
 					params: {
 						type: this.searchType,
 						keyword:this.value,
-						page:'index'
+						page:'index',
+						tabSelect:this.tabSelect,
+						tabSelectId:this.tabSelectId,
 					}
 				});
+			},
+			// tab返回
+			eventTab(e){
+				this.tabSelect = e.type;
+				this.tabSelectId = e.id;
 			}
 		},
 		mounted() {
