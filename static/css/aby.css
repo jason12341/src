@@ -52,8 +52,8 @@ body {
 }
 
 .mui-bar-nav {
-    -webkit-box-shadow: 0 0px 0px #ccc;
-    box-shadow: 0 0px 0px #ccc;
+	-webkit-box-shadow: 0 0px 0px #ccc;
+	box-shadow: 0 0px 0px #ccc;
 }
 
 .content {
@@ -197,9 +197,10 @@ body {
 	_display: inline
 }
 
-.pt-45{
+.pt-45 {
 	padding-top: 45px;
 }
+
 
 /*-----------------------------------------------间距样式-----------------------------------------------*/
 
@@ -224,7 +225,9 @@ body {
 
 .mui-table-view:before,
 .mui-table-view:after,
-.mui-table-view-cell:after {
+.mui-table-view-cell:after,
+.mui-card-footer:before,
+.mui-card-header:after {
 	background-color: #F0F0F0;
 }
 
@@ -310,9 +313,12 @@ small {
 	font-weight: 400;
 }
 
-.mui-navigate-right:after, .mui-push-right:after {
-    right: 10px;
+.mui-navigate-right:after,
+.mui-push-right:after {
+	right: 10px;
 }
+
+
 /*-----------------------------------------按钮样式----------------------------------------*/
 
 
@@ -668,9 +674,11 @@ small {
 .mint-navbar .mint-tab-item .mint-tab-item-label {
 	font-size: 14px!important;
 }
+
 .mui-bar-tab .mui-tab-item.mui-active {
-    color: #08C7B5;
+	color: #08C7B5;
 }
+
 .mui-bar {
-    background-color: #FFFFFF;
+	background-color: #FFFFFF;
 }
