@@ -330,7 +330,6 @@
 		padding: 8px;
 	}
 	
-	
 	.aby-detail-content h4 {
 		padding: 15px 15px 30px 15px;
 		margin: 0px;
@@ -342,4 +341,5 @@
 	.mui-table-view-cell:after {
 		height: 0px;
 	}
+
 </style>

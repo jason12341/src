@@ -39,28 +39,110 @@
 						id: 'buyersTab',
 						title: '买家中心',
 						type: 'buyer',
-						data: [
-							{ id:'agr',title:'收到的协议',num:0,state:'',icon:'' },
-							{ id:'all',title:'全部订单',num:0,state:'',icon:'' },
-							{ id:'waitConfrim',title:'待确认',num:0,state:9,icon:'' },
-							{ id:'waitPay',title:'待付款',num:0,state:0 ,icon:''},
-							{ id:'waitSetOut',title:'待出行',num:0,state:1,icon:'' },
-							{ id:'waitEnd',title:'待完成',num:0,state:2,icon:'' },
-							{ id:'waitRefund',title:'退款',num:0,state:10,icon:'' },
+						data: [{
+								id: 'agr',
+								title: '收到的协议',
+								num: 0,
+								state: '',
+								icon: 'myagreement'
+							},
+							{
+								id: 'all',
+								title: '全部订单',
+								num: 0,
+								state: '',
+								icon: 'orderall'
+							},
+							{
+								id: 'waitConfrim',
+								title: '待确认',
+								num: 0,
+								state: 9,
+								icon: 'orderconfirm'
+							},
+							{
+								id: 'waitPay',
+								title: '待付款',
+								num: 0,
+								state: 0,
+								icon: 'orderpay'
+							},
+							{
+								id: 'waitSetOut',
+								title: '待出行',
+								num: 0,
+								state: 1,
+								icon: 'ordertrip'
+							},
+							{
+								id: 'waitEnd',
+								title: '待完成',
+								num: 0,
+								state: 2,
+								icon: 'orderfinish'
+							},
+							{
+								id: 'waitRefund',
+								title: '退款',
+								num: 0,
+								state: 10,
+								icon: 'orderrefund'
+							},
 						]
 					},
 					{
 						id: 'sellerTab',
 						title: '卖家中心',
 						type: 'seller',
-						data: [
-							{ id:'agr',title:'发出的协议',num:0,state:'',icon:'' },
-							{ id:'all',title:'全部订单',num:0,state:'',icon:'' },
-							{ id:'waitConfrim',title:'待确认',num:0,state:9,icon:'' },
-							{ id:'waitPay',title:'待付款',num:0,state:0,icon:'' },
-							{ id:'waitSetOut',title:'待出行',num:0,state:1,icon:'' },
-							{ id:'waitEnd',title:'待完成',num:0,state:2,icon:'' },
-							{ id:'waitRefund',title:'退款处理',num:0,state:10,icon:'' },
+						data: [{
+								id: 'agr',
+								title: '发出的协议',
+								num: 0,
+								state: '',
+								icon: 'myagreement'
+							},
+							{
+								id: 'all',
+								title: '全部订单',
+								num: 0,
+								state: '',
+								icon: 'orderall'
+							},
+							{
+								id: 'waitConfrim',
+								title: '待确认',
+								num: 0,
+								state: 9,
+								icon: 'orderconfirm'
+							},
+							{
+								id: 'waitPay',
+								title: '待付款',
+								num: 0,
+								state: 0,
+								icon: 'orderpay'
+							},
+							{
+								id: 'waitSetOut',
+								title: '待出行',
+								num: 0,
+								state: 1,
+								icon: 'ordertrip'
+							},
+							{
+								id: 'waitEnd',
+								title: '待完成',
+								num: 0,
+								state: 2,
+								icon: 'orderfinish'
+							},
+							{
+								id: 'waitRefund',
+								title: '退款处理',
+								num: 0,
+								state: 10,
+								icon: 'orderrefund'
+							},
 						]
 					},
 				],
@@ -80,24 +162,24 @@
 				this.getOrderNum();
 			},
 			// 获得订单数量
-			getOrderNum(){
+			getOrderNum() {
 				this.$abyApi.Order.getNum(this.identityType, (res) => {
-					this.tabList.forEach((val,i)=>{
-						if(this.identityType === val.type){
-							val.data.forEach((v,x)=>{
-								if(v.id == 'agr')this.tabList[i].data[x].num = res.data.waitConfrimDisNum;
-								if(v.id == 'waitConfrim')this.tabList[i].data[x].num = res.data.waitConfirmLineNum;
-								if(v.id == 'waitPay')this.tabList[i].data[x].num = res.data.waitPayNum;
-								if(v.id == 'waitSetOut')this.tabList[i].data[x].num = res.data.hasPayNum;
-								if(v.id == 'waitEnd')this.tabList[i].data[x].num = res.data.waitConfirmNum;
-								if(v.id == 'waitRefund')this.tabList[i].data[x].num = res.data.refundingOrderNum;
+					this.tabList.forEach((val, i) => {
+						if(this.identityType === val.type) {
+							val.data.forEach((v, x) => {
+								if(v.id == 'agr') this.tabList[i].data[x].num = res.data.waitConfrimDisNum;
+								if(v.id == 'waitConfrim') this.tabList[i].data[x].num = res.data.waitConfirmLineNum;
+								if(v.id == 'waitPay') this.tabList[i].data[x].num = res.data.waitPayNum;
+								if(v.id == 'waitSetOut') this.tabList[i].data[x].num = res.data.hasPayNum;
+								if(v.id == 'waitEnd') this.tabList[i].data[x].num = res.data.waitConfirmNum;
+								if(v.id == 'waitRefund') this.tabList[i].data[x].num = res.data.refundingOrderNum;
 							})
 						}
 					})
 				});
 			},
 			// 协议列表
-			toAgrList(obj){
+			toAgrList(obj) {
 				this.$router.push({
 					name: 'agrList',
 					params: {
@@ -108,7 +190,7 @@
 				});
 			},
 			// 订单列表
-			toList(obj){
+			toList(obj) {
 				this.$router.push({
 					name: 'orderList',
 					params: {
@@ -135,4 +217,18 @@
 		width: 100%;
 		height: 100%;
 	}
+	
+	.ptype {
+		width: 24px;
+		height: 24px;
+		vertical-align: bottom;
+		margin-right: 8px;
+		margin-left: 5px;
+	}
+	
+	.mui-table-view-cell {
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
 </style>
