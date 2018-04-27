@@ -82,6 +82,8 @@ import MsgSystem from '../pages/Message/MsgSystem.vue'
 import MsgDetail from '../pages/Message/MsgDetail.vue'
 //聊天
 import Chat from '../pages/Chat/Chat.vue'
+//支付
+import PayWay from '../pages/Pay/PayWay.vue'
 
 
 const router = new Router({
@@ -156,8 +158,10 @@ const router = new Router({
 		{ name: 'msgSystem',path: '/MsgSystem',component: MsgSystem },
 		{ name: 'msgDetail',path: '/MsgDetail',component: MsgDetail },
 		
+		//聊天
 		{ name: 'chat',path: '/Chat',component: Chat },
-
+		//支付
+		{ name: 'payWay',path: '/PayWay',component: PayWay },
 	]
 })
 
