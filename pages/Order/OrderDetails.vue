@@ -1,6 +1,6 @@
 <template>
 	<aby-page>
-		<aby-header title="订单详情" slot="header">
+		<aby-header title="订单详情" slot="header" :pageNum="pageNum">
 		</aby-header>
 		<div class="mui-content aby-detail" slot="content" v-if="info!=''">
 			<div class="aby-detail-header mui-text-center">
@@ -206,6 +206,8 @@
 			return {
 				orderId:this.$route.params.orderId,
 				identityType:this.$route.params.identityType,
+				page:this.$route.params.page,
+				pageNum:1,
 				serviceFee: '',
 				btnList:[
 					{id:1,title:'确认订单',size:'small',bclass:'aby-button-line-blue'},
@@ -225,7 +227,9 @@
 		},
 		methods: {
 			init(){
-				
+				this.orderId = this.$route.params.orderId;
+				this.info = '';
+				this.getDetail();
 			},
 			// 列表按钮显示
 			initBtn(orderState){
@@ -272,10 +276,46 @@
 			// 按钮事件
 			onBtn(liObj,btnObj){
 				if(btnObj.id == 3){
-					
+					// 订单备注
+					this.$tool.prompt('输入备注内容',(e)=>{
+						let reqInfo = {};
+						reqInfo.orderId = liObj.id;
+						reqInfo.sellerNote = e.sellerNote;
+						this.$abyApi.Order.confirmOrder(reqInfo,(res)=>{
+							this.getDetail();
+						});
+					});
 				}else if(btnObj.id == 4){
 					// 修改价格
+					this.$tool.prompt('输入价格',(e)=>{
+						let reqInfo = {};
+						reqInfo.orderId = liObj.id;
+						reqInfo.payment = e.value;
+						this.$abyApi.Order.confirmOrder(reqInfo,(res)=>{
+							this.getDetail();
+						});
+					})
+				}else if(btnObj.id == 5){
+					// 去支付
 					
+				}else if(btnObj.id == 6){
+					// 申请退款
+					this.$router.push({
+						name: 'refundApply',
+						params: {
+							orderId: li.id,
+							identityType:this.identityType
+						}
+					});
+				}else if(btnObj.id == 7 || btnObj.id == 8){
+					// 退款处理 退款详情
+					this.$router.push({
+						name: 'refundDetail',
+						params: {
+							orderId: li.id,
+							identityType:this.identityType
+						}
+					});
 				}else{
 					this.$tool.confirm('您确定要'+btnObj.title+'吗？',(res)=>{
 						let reqInfo = {};
@@ -283,20 +323,29 @@
 						if(btnObj.id == 1){
 							// 确认订单
 							this.$abyApi.Order.confirmOrder(reqInfo,(res)=>{
-								this.$emit("eventOrder");
+								this.getDetail();
 							});
 						}else if(btnObj.id == 2){
 							// 取消订单
 							this.$abyApi.Order.cancelOrder(reqInfo,(res)=>{
-								this.$emit("eventOrder");
+								this.getDetail();
+							});
+						}else if(btnObj.id == 9){
+							// 取消申请退款
+							this.$abyApi.Order.cancelApply(reqInfo,(res)=>{
+								this.getDetail();
+							});
+						}else if(btnObj.id == 10){
+							// 确认订单
+							this.$abyApi.Order.transactionCompletion(reqInfo,(res)=>{
+								this.getDetail();
 							});
 						}else if(btnObj.id == 11){
 							// 删除订单
 							this.$abyApi.Order.deleteOrder(reqInfo,(res)=>{
-								this.$emit("eventOrder");
+								this.getDetail();
 							});
 						}
-						
 					});
 				}
 			},
@@ -320,12 +369,23 @@
 		},
 		mounted() {
 			this.getDetail();
+			
+			this.pageNum = this.page == 'agrDetail' ? 2 : 1;
 		},
 		watch: {
 			list(val) {
 				this.list = val;
 			}
-		}
+		},
+		beforeRouteEnter(to, from, next) {
+			if(from.name == 'orderList') {
+				next(vm => {
+					vm.init()
+				})
+			}else{
+				next()
+			}
+		},
 	}
 </script>
 

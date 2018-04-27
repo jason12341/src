@@ -63,7 +63,7 @@
 			},
 			// 搜索类型点击事件
 			onSearchType(value,type){
-				this.$router.replace({
+				this.$router.push({
 					name: 'searchIndexResult',
 					params: {
 						type: type,
@@ -81,7 +81,7 @@
 			},
 			// 跳转
 			toResult(){
-				this.$router.replace({
+				this.$router.push({
 					name: 'searchIndexResult',
 					params: {
 						type: this.searchType,

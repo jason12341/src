@@ -42,7 +42,7 @@
 				</div>
 				<div class="mui-card-content" v-if="li.selectType == 40">
 					<div class="mui-card-content-inner mui-navigate-right" @click="toDetail(li.selectId)">
-						<h5>{{li.title}}</h5>
+						<h5>我需要{{li.hotelAddress}}的酒店</h5>
 						<p>出行时间：{{li.outServTime}}</p>
 						<p>人数：{{li.peopleNum}}成人 <span v-if="li.childNum!=0">{{li.childNum}}儿童</span></p>
 						<p>天数：{{li.selectDays}}天</p>
@@ -54,7 +54,7 @@
 				</div>
 				<div class="mui-card-content" v-if="li.selectType == 50">
 					<div class="mui-card-content-inner mui-navigate-right" @click="toDetail(li.selectId)">
-						<h5>{{li.title}}</h5>
+						<h5>我需要预定去{{li.scenicName}}的景点门票</h5>
 						<p>游玩时间：{{li.playScenicTime|filterConvertDate}}</p>
 						<p>人数：{{li.peopleNum}}成人 <span v-if="li.childNum!=0">{{li.childNum}}儿童</span></p>
 					</div>

@@ -1,6 +1,6 @@
 <template>
 	<div class="page">
-		<aby-header title="" slot="header">
+		<aby-header title="" slot="header" page="2">
 			<aby-back @click.native="goBack" slot="back"></aby-back>
 			<header-search slot="hSearch" :placeholder="keyword" @eventSearch="eventSearchBack"></header-search>
 			<aby-fonts slot="right" class="aby-mui-bar mui-pull-right" title="搜索" @click.native="onSearch"></aby-fonts>
