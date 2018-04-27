@@ -632,6 +632,15 @@ const Select = {
 		}; 
 		Server.getDataFromServer('cpSelect',requestData,successCallback, errorCallback);
 	},
+	// 发布导游询价
+	saveGuidePublish(requestInfo, successCallback, errorCallback){
+		let requestData = {
+			loading:requestInfo.loading,
+			act: 'PBTY001',
+			pbBasic:requestInfo
+		}; 
+		Server.getDataFromServer('publish',requestData,successCallback, errorCallback);
+	},
 };
 
 /******************************      Order 订单模块      *****************************/

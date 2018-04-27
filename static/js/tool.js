@@ -46,7 +46,7 @@ let formValidation = {
 	 * 手机号码合法性验证
 	 * @author liuwenjn
 	 **/
-	phoneVerfication: function (id) {
+	phoneVerfication: function(id) {
 		let reg = /^13[0-9]{1}[0-9]{8}$|15[0-9]{1}[0-9]{8}$|18[0-9]{1}[0-9]{8}$|17[0-9]{1}[0-9]{8}$|14[0-9]{1}[0-9]{8}$|16[0-9]{1}[0-9]{8}$|19[0-9]{1}[0-9]{8}/;
 		if(!reg.test(id)) {
 			return false;
@@ -72,7 +72,11 @@ let disableWait = function(obj) {
 };
 
 // 选择拍照，视频文件函数（app）
-let btnArray = [{title: "拍照"}, {title: "从相册选择"}];
+let btnArray = [{
+	title: "拍照"
+}, {
+	title: "从相册选择"
+}];
 let getPhoto = function(successCallback, errorCallback) {
 	plus.nativeUI.actionSheet({
 		title: "选择图片",
@@ -81,7 +85,8 @@ let getPhoto = function(successCallback, errorCallback) {
 	}, function(e) {
 		let index = e.index;
 		switch(index) {
-			case 0:break;
+			case 0:
+				break;
 			case 1:
 				let cmr = plus.camera.getCamera();
 				cmr.captureImage(function(path) {
@@ -146,9 +151,9 @@ let countdown = function(endDate, divId) {
 		html = p(oHours) + ":" + p(oMinutes) + ":" + p(oSeconds);
 	}
 	if(document.getElementById(divId)) {
-		if(oDay){
+		if(oDay) {
 			document.getElementById(divId).innerHTML = html;
-		}else{
+		} else {
 			document.getElementById(divId).className = 'time fontGray';
 			document.getElementById(divId).innerHTML = '已结束';
 		}
@@ -169,84 +174,142 @@ let countdown = function(endDate, divId) {
 };
 
 // 拨打电话(app)
-let dialTelToApp = function(phone){
+let dialTelToApp = function(phone) {
 	plus.device.dial(phone, false);
 };
 
 /******************************      toast       *****************************/
-let toast = function(title,pos){
+let toast = function(title, pos) {
 	Vue.$toast(title);
 };
 
 /******************************      loading       *****************************/
 // 显示
-let loading = function(title){
+let loading = function(title) {
 	Vue.$indicator.open(title);
 };
 // 隐藏
-let loadingClose = function(){
+let loadingClose = function() {
 	Vue.$indicator.close();
 };
 
 /******************************      MessageBox       *****************************/
 // alert
-let alert = function(message,callbacl,title){
+let alert = function(message, callbacl, title) {
 	title = title || '呱啦啦提示';
-	Vue.$messagebox.alert(message,title).then(action => {
+	Vue.$messagebox.alert(message, title).then(action => {
 		callbacl && callbacl(action)
 	});
 };
 // confirm
-let confirm = function(message,callbacl,title){
+let confirm = function(message, callbacl, title) {
 	title = title || '呱啦啦提示';
-	Vue.$messagebox.confirm(message,title).then(action => {
+	Vue.$messagebox.confirm(message, title).then(action => {
 		callbacl && callbacl(action)
 	});
 };
 //prompt
-let prompt = function(title,callbacl){
+let prompt = function(title, callbacl) {
 	title = title || '呱啦啦提示';
-	Vue.$messagebox.prompt(title).then(({ value, action }) => {
-		callbacl && callbacl({ value, action })
+	Vue.$messagebox.prompt(title).then(({
+		value,
+		action
+	}) => {
+		callbacl && callbacl({
+			value,
+			action
+		})
 	});
 };
 
 /******************************      缓存模块       *****************************/
 let localStorage = {
-	set(title,val){
-		window.localStorage.setItem(title,val);
+	set(title, val) {
+		window.localStorage.setItem(title, val);
 	},
-	get(title){
+	get(title) {
 		let info = window.localStorage.getItem(title);
-		if(info)info = JSON.parse(info);
+		if(info) info = JSON.parse(info);
 		return info;
 	},
-	remove(title){
+	remove(title) {
 		window.localStorage.remove(title);
 	},
 	// 保存搜索记录
-	setSearch(val){
+	setSearch(val) {
 		let localStorageList = this.get('searchList');
-		if(!localStorageList)localStorageList = [];
+		if(!localStorageList) localStorageList = [];
 		let isAdd = true;
-		for(let i=0,len=localStorageList.length;i<len;i++){
-			if(localStorageList[i] == val)isAdd = false;
+		for(let i = 0, len = localStorageList.length; i < len; i++) {
+			if(localStorageList[i] == val) isAdd = false;
 		}
-		if(isAdd)localStorageList.push(val);
-		
-		this.set('searchList',JSON.stringify(localStorageList));
+		if(isAdd) localStorageList.push(val);
+
+		this.set('searchList', JSON.stringify(localStorageList));
 	},
 	// 获得搜索记录
-	getSearch(){
+	getSearch() {
 		return this.get('searchList');
 	},
 	// 清空搜索记录
-	clearSerch(){
+	clearSerch() {
 		this.remove('searchList');
 	}
-	
+
+};
+
+// 获得当前时间
+let getNowFormatDate = function() {
+	var date = new Date();
+	var seperator1 = "-";
+	var year = date.getFullYear();
+	var month = date.getMonth() + 1;
+	var strDate = date.getDate();
+	if(month >= 1 && month <= 9) {
+		month = "0" + month;
+	}
+	if(strDate >= 0 && strDate <= 9) {
+		strDate = "0" + strDate;
+	}
+	var currentdate = year + seperator1 + month + seperator1 + strDate;
+	return currentdate;
+};
+
+// 时间格式化
+let getFormatDate = function(datetime) {
+	var year = datetime.getFullYear();
+	var month = datetime.getMonth() + 1; //js从0开始取 
+	var date = datetime.getDate();
+	var hour = datetime.getHours();
+	var minutes = datetime.getMinutes();
+	var second = datetime.getSeconds();
+
+	if(month < 10) {
+		month = "0" + month;
+	}
+	if(date < 10) {
+		date = "0" + date;
+	}
+
+	return year + "-" + month + "-" + date;
 };
 
 export default {
-	isInAarry,browser,disableWait,toast,loading,loadingClose,alert,confirm,prompt,getPhoto,dialTelToApp,formValidation,countdown,pad,localStorage
+	isInAarry,
+	browser,
+	disableWait,
+	toast,
+	loading,
+	loadingClose,
+	alert,
+	confirm,
+	prompt,
+	getPhoto,
+	dialTelToApp,
+	formValidation,
+	countdown,
+	pad,
+	localStorage,
+	getNowFormatDate,
+	getFormatDate
 }

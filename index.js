@@ -11,6 +11,7 @@ import { TabContainer, TabContainerItem } from 'mint-ui'
 import { IndexList, IndexSection } from 'mint-ui'
 import { Cell } from 'mint-ui'
 import { Field } from 'mint-ui'
+import { DatetimePicker } from 'mint-ui'
 
 import { MessageBox } from 'mint-ui'
 import { Indicator } from 'mint-ui'
@@ -36,6 +37,7 @@ Vue.component(IndexSection.name, IndexSection)
 Vue.component(Cell.name, Cell)
 Vue.component(Field.name, Field)
 Vue.component(Badge.name, Badge)
+Vue.component(DatetimePicker.name, DatetimePicker)
 
 Vue.use(InfiniteScroll)
 
