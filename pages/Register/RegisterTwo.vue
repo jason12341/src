@@ -55,12 +55,20 @@
 		},
 		mounted() {
 			this.$abyApi.Sys.getDict('cpBtype', '', (res) => {
-				for(let i = 0; i < res.dicList.length; i++) {
-					let data = {};
-					data.value = res.dicList[i].dicValue;
-					data.text = res.dicList[i].dicName;
-					this.cpBtypeList.push(data);
+				let dlist = []
+				for(let i=0,len=res.dicList.length;i<len;i++){
+					let info = {};
+					info.text = res.dicList[i].dicName;
+					info.value = res.dicList[i].dicValue;
+					dlist.push(info);
 				}
+				let slots = [{
+					flex: 1,
+					values: dlist,
+					className: 'slot1',
+					textAlign: 'center'
+				}];
+				this.cpBtypeList = slots;
 			})
 		},
 	}

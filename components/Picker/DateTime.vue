@@ -21,7 +21,7 @@
 			handleConfirm() {
 				let val = this.pickerValue;
 				if(!val)val = new Date();
-				val = this.$tool.getFormatDate(val)
+				val = this.$tool.getFormatDate(val);
 				let list = this.modelId.split('.');
 				if(list.length == 1) {
 					this.$parent[this.modelId] = val;

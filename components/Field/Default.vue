@@ -45,20 +45,28 @@
 			},
 			dmodelVal(val) {
 				this.dmodelVal = val;
-				let list = this.modelId.split('.');
-				if(list.length == 1){
-					this.$parent[this.modelId] = val;
-					this.$parent.$parent[this.modelId] = val;
-				}else if(list.length == 2){
-					if(this.$parent[list[0]])this.$parent[list[0]][list[1]] = val;
-					if(this.$parent.$parent[list[0]])this.$parent.$parent[list[0]][list[1]] = val;
-				}else if(list.length == 3){
-					if(this.$parent[list[0]])this.$parent[list[0]][list[1]][list[2]] = val;
-					if(this.$parent.$parent[list[0]])this.$parent.$parent[list[0]][list[1]][list[2]] = val;
+				if(this.modelId){
+					let list = this.modelId.split('.');
+					if(list.length == 1){
+						this.$parent[this.modelId] = val;
+						this.$parent.$parent[this.modelId] = val;
+					}else if(list.length == 2){
+						if(this.$parent[list[0]])this.$parent[list[0]][list[1]] = val;
+						if(this.$parent.$parent[list[0]])this.$parent.$parent[list[0]][list[1]] = val;
+					}else if(list.length == 3){
+						if(this.$parent[list[0]])this.$parent[list[0]][list[1]][list[2]] = val;
+						if(this.$parent.$parent[list[0]])this.$parent.$parent[list[0]][list[1]][list[2]] = val;
+					}
 				}
 			},
 			modelVal(val){
 				this.dmodelVal = val;
+			},
+			placeholder(val){
+				this.dplaceholder = val;
+			},
+			type(val){
+				this.dtype = val;
 			}
 		}
 	}
