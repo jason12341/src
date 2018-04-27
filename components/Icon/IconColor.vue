@@ -83,7 +83,7 @@
 						break;
 						//我的------------------------------------------------------------------------------------
 						//我的产品库
-					case 'icon-myproduct':
+					case 'myproduct':
 						this.iconClass = '#icon-wodechanpinkugai';
 						break;
 						//我的询价
@@ -103,7 +103,7 @@
 						this.iconClass = '#icon-dianpuerweimagai';
 						break;
 						//子账号管理
-					case 'account ':
+					case 'account':
 						this.iconClass = '#icon-zizhanghaoguanligai';
 						break;
 						//联系客服

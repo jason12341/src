@@ -217,15 +217,7 @@
 		width: 100%;
 		height: 100%;
 	}
-	
-	.ptype {
-		width: 24px;
-		height: 24px;
-		vertical-align: bottom;
-		margin-right: 8px;
-		margin-left: 5px;
-	}
-	
+
 	.mui-table-view-cell {
 		padding-top: 15px;
 		padding-bottom: 15px;

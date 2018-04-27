@@ -2,56 +2,68 @@
 	<div class="detail">
 		<aby-header title="我的">
 			<div slot="back"></div>
-			<aby-fonts slot="right" class="aby-mui-bar" @click.native="toUrl" className="mui-pull-right" title="设置"></aby-fonts>
+			<aby-icon type="setting" slot="right" @click.native="toUrl" class="mui-pull-right"></aby-icon>
 		</aby-header>
 		<div class="content">
 			<!--个人信息部分-->
 			<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 1px;">
-				<li class="mui-table-view-cell mui-media">
-					<a class="mui-navigate-right" href="#/homePage">
-						<img class="mui-media-object mui-pull-left" :src="cpUserInfo.cpBasic.cpLogo">
+				<li class="mui-table-view-cell mui-media person">
+					<a href="#/homePage">
+						<img class="mui-media-object mui-pull-left personpic" :src="cpUserInfo.cpBasic.cpLogo">
+						<!--组团-->
+						<img class="role" src="../../static/images/ico/ico_role_travel.png" />
+						<!--地接-->
+						<img class="role" src="../../static/images/ico/ioc_role_local.png" />
+						
 						<div class="mui-media-body">
 							{{cpUserInfo.userName}}
 							<p class='mui-ellipsis'>{{cpUserInfo.cpBasic.cpName}}</p>
 						</div>
 					</a>
+					<i class="mint-cell-allow-right"></i>
 				</li>
 			</ul>
 			<!--菜单部分-->
 			<ul class="mui-table-view mui-table-view-chevron space">
 				<li class="mui-table-view-cell mui-media">
-					<a class="mui-navigate-right menu" href="#/myProduct">
-						<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 我的产品库
+					<a class="menu" href="#/myProduct">
+						<aby-icon-color class="ptype" type="myproduct"></aby-icon-color>我的产品库
 					</a>
+					<i class="mint-cell-allow-right"></i>
 				</li>
 			</ul>
 			<ul class="mui-table-view mui-table-view-chevron space">
 				<li class="mui-table-view-cell mui-media">
-					<a class="mui-navigate-right menu" href="#/myPurchase">
-						<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 我的询价
+					<a class="menu" href="#/myPurchase">
+						<aby-icon-color class="ptype" type="myinquiry"></aby-icon-color>我的询价
 					</a>
+					<i class="mint-cell-allow-right"></i>
 				</li>
 				<li class="mui-table-view-cell mui-media">
-					<a class="mui-navigate-right menu" href="#/myCollection">
-						<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 我的收藏
+					<a class="menu" href="#/myCollection">
+						<aby-icon-color class="ptype" type="mycollection"></aby-icon-color>我的收藏
 					</a>
+					<i class="mint-cell-allow-right"></i>
 				</li>
 				<li class="mui-table-view-cell mui-media">
-					<a class="mui-navigate-right menu" href="#/myCode">
-						<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 店铺二维码
+					<a class="menu" href="#/myCode">
+						<aby-icon-color class="ptype" type="mycode"></aby-icon-color>店铺二维码
 					</a>
+					<i class="mint-cell-allow-right"></i>
 				</li>
 				<li class="mui-table-view-cell mui-media">
 					<router-link class="mui-navigate-right menu" :to="{name:'accountList'}">
-						<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 子账号管理
+						<aby-icon-color class="ptype" type="account"></aby-icon-color>子账号管理
 					</router-link>
+					<i class="mint-cell-allow-right"></i>
 				</li>
 			</ul>
 			<ul class="mui-table-view mui-table-view-chevron space">
 				<li class="mui-table-view-cell mui-media menu">
-					<span class="mui-navigate-right" @click="onDialTel">
-						<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 联系客服
+					<span @click="onDialTel">
+						<aby-icon-color class="ptype" type="service"></aby-icon-color>联系客服
 					</span>
+					<i class="mint-cell-allow-right"></i>
 				</li>
 			</ul>
 		</div>
@@ -86,8 +98,23 @@
 	}
 </script>
 <style scoped>
-	.mui-table-view-cell:after {
-		left: 0px;
-		background-color: #c8c7cc;
+	.mui-table-view-cell {
+		padding: 15px 13px;
+	}
+	.personpic{
+		height: 65px;
+		width: 65px;
+		max-width: 65px;
+		border-radius: 5px;
+	}
+	.mui-media-body{
+		padding-left: 6px;
+		padding-top: 13px;
+	}
+	/*身份标志*/
+	.role{
+		width: 40px;
+		position: absolute;
+		margin-left: -50px;
 	}
 </style>

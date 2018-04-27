@@ -67,6 +67,7 @@
 		width: 45px;
 		height: 45px;
 		max-width: 45px;
+		border-radius: 4px;
 	}
 	.mui-media-body{
 		padding-top: 2px;
