@@ -59,4 +59,16 @@
 		left: 45px;
 		top: 25%!important;
 	}
+	
+	.mui-table-view-cell {
+		padding: 13px 15px;
+	}
+	.mui-table-view .mui-media-object{
+		width: 45px;
+		height: 45px;
+		max-width: 45px;
+	}
+	.mui-media-body{
+		padding-top: 2px;
+	}
 </style>
