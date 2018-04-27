@@ -148,6 +148,8 @@
 				case 'vcode':this.iconClass = 'aby-icon-vcode ' + this.className;break;
 				//验证码-白
 				case 'vcodewhit':this.iconClass = 'aby-icon-vcodewhit ' + this.className;break;
+				//企业名称
+				case 'business':this.iconClass = 'aby-icon-business ' + this.className;break;
 				//企业名称-白
 				case 'businesswhite':this.iconClass = 'aby-icon-businesswhite ' + this.className;break;
 				//职位

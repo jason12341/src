@@ -446,6 +446,11 @@
 	content: '\e64c';
 }
 
+/*企业名称*/
+.aby-icon-business:before {
+	content: '\e677';
+}
+
 
 /*企业名称-白*/
 

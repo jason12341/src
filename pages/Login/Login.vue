@@ -8,10 +8,10 @@
 				</div>
 				<div class="row-input">
 					<aby-field modelId="loginId" className="aby-input-line" iclassName="mintui mintui-more aby-font-white" placeholder="请输入手机号" type="tel">
-						<i slot="allowRight"></i>
+						<aby-icon id="iconLabel" type="loginidwhite" class="aby-font-white" slot="icon"></aby-icon>
 					</aby-field>
 					<aby-field modelId="loginPwd" className="aby-input-line" iclassName="mintui mintui-more aby-font-white" placeholder="密码至少六位" type="password">
-						<i slot="allowRight"></i>
+						<aby-icon id="iconLabel" type="pwdwhite" class="aby-font-white" slot="icon"></aby-icon>
 					</aby-field>
 				</div>
 				<div class="row-button">
