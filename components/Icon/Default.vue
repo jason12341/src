@@ -220,8 +220,5 @@
 	}
 </script>
 
-<style scoped>
-	.mui-icon{
-		color:#707070;
-	}
+<style>
 </style>
