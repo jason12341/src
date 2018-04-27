@@ -31,6 +31,10 @@
 			<div class="aby-button-panel space">
 				<aby-button class="aby-button-blue" title="扫码登录支付"></aby-button>
 			</div>
+			<div class="safe">
+				<img src="../../static/images/ico/ico_pay_tl_3x.png" />
+				<p>本平台由通联支付提供资金担保</p>
+			</div>
 		</div>
 	</aby-page>
 </template>
@@ -53,7 +57,17 @@
 		background-color: #FFFFFF;
 		padding: 10px 15px;
 	}
-	
+	.safe{
+		text-align: center;
+		padding-top: 20px;
+	}
+	.safe img{
+		width: 70px;
+	}
+	.safe p{
+		color: #0171B9;
+		font-size: 10px;
+	}
 	.aby-list-title {
 		font-size: 14px!important;
 	}
