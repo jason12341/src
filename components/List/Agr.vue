@@ -1,7 +1,7 @@
 <template>
 	<div class="list-item">
 		<ul class="mui-table-view" v-for="(li,i) in list" :key="i">
-			<li class="mui-table-view-cell mui-media" v-if="identityType == 'seller'">
+			<li class="mui-table-view-cell mui-media" v-if="identityType == 'seller'" @click="tiDetail(li)">
 				<img class="mui-media-object mui-pull-left" :src="li.buyerInfo.cpLogo" >
 				<div class="mui-media-body aby-list">
 					<p class="aby-list-title">
@@ -21,7 +21,7 @@
 					<i class="mint-cell-allow-right"></i>
 				</div>
 			</li>
-			<li class="mui-table-view-cell mui-media" v-if="identityType == 'buyer'">
+			<li class="mui-table-view-cell mui-media" v-if="identityType == 'buyer'" @click="tiDetail(li)">
 				<img class="mui-media-object mui-pull-left" :src="li.sellerInfo.cpLogo" >
 				<div class="mui-media-body aby-list">
 					<p class="aby-list-title">
@@ -57,12 +57,11 @@
 		methods: {
 			//查看详情
 			toDetail(li){
-				let proUrl = li.detailUrl + '?token='+this.$store.state.user_token + '&proId='+li.proId;
 				this.$router.push({
-					name: 'webView',
+					name: 'agrDetail',
 					params: {
 						title: li.mTitle,
-						url: proUrl
+						orderId: li.id
 					}
 				});
 			}

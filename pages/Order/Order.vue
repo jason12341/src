@@ -1,10 +1,10 @@
 <template>
 	<aby-tab :list="tabList" page="order" @eventTabBack="eventTab">
-		<div v-for="(v,x) in tabList" :key="x" :slot="v.id" class="mui-content">
+		<div v-for="(v,x) in tabList" :key="x" :slot="v.id" class="mui-content pt-45">
 			<ul class="mui-table-view mui-table-view-chevron space">
 				<li class="mui-table-view-cell mui-media" v-for="(li,i) in v.data" v-if="li.id == 'agr'" @click="toAgrList(li)">
 					<a class="mui-navigate-right menu">
-						<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> {{li.title}}
+						<aby-icon-color class="ptype" :type="li.icon"></aby-icon-color> {{li.title}}
 						<span class="mui-badge mui-badge-danger" v-if="li.num != 0">{{li.num}}</span>
 					</a>
 				</li>
@@ -12,7 +12,7 @@
 			<ul class="mui-table-view mui-table-view-chevron space">
 				<li class="mui-table-view-cell mui-media" v-for="(li,i) in v.data" v-if="li.id != 'waitRefund'&&li.id != 'agr'" @click="toList(li)">
 					<a class="mui-navigate-right menu">
-						<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> {{li.title}}
+						<aby-icon-color class="ptype" :type="li.icon"></aby-icon-color> {{li.title}}
 						<span class="mui-badge mui-badge-danger" v-if="li.num != 0">{{li.num}}</span>
 					</a>
 				</li>
@@ -20,7 +20,7 @@
 			<ul class="mui-table-view mui-table-view-chevron space" v-for="(li,i) in v.data" v-if="li.id == 'waitRefund'" @click="toList(li)">
 				<li class="mui-table-view-cell mui-media">
 					<a class="mui-navigate-right menu">
-						<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> {{li.title}}
+						<aby-icon-color class="ptype" :type="li.icon"></aby-icon-color> {{li.title}}
 						<span class="mui-badge mui-badge-danger" v-if="li.num != 0">{{li.num}}</span>
 					</a>
 				</li>
@@ -40,13 +40,13 @@
 						title: '买家中心',
 						type: 'buyer',
 						data: [
-							{ id:'agr',title:'收到的协议',num:0,state:'' },
-							{ id:'all',title:'全部订单',num:0,state:'' },
-							{ id:'waitConfrim',title:'待确认',num:0,state:9 },
-							{ id:'waitPay',title:'待付款',num:0,state:0 },
-							{ id:'waitSetOut',title:'待出行',num:0,state:1 },
-							{ id:'waitEnd',title:'待完成',num:0,state:2 },
-							{ id:'waitRefund',title:'退款',num:0,state:10 },
+							{ id:'agr',title:'收到的协议',num:0,state:'',icon:'' },
+							{ id:'all',title:'全部订单',num:0,state:'',icon:'' },
+							{ id:'waitConfrim',title:'待确认',num:0,state:9,icon:'' },
+							{ id:'waitPay',title:'待付款',num:0,state:0 ,icon:''},
+							{ id:'waitSetOut',title:'待出行',num:0,state:1,icon:'' },
+							{ id:'waitEnd',title:'待完成',num:0,state:2,icon:'' },
+							{ id:'waitRefund',title:'退款',num:0,state:10,icon:'' },
 						]
 					},
 					{
@@ -54,13 +54,13 @@
 						title: '卖家中心',
 						type: 'seller',
 						data: [
-							{ id:'agr',title:'发出的协议',num:0,state:'' },
-							{ id:'all',title:'全部订单',num:0,state:'' },
-							{ id:'waitConfrim',title:'待确认',num:0,state:9 },
-							{ id:'waitPay',title:'待付款',num:0,state:0 },
-							{ id:'waitSetOut',title:'待出行',num:0,state:1 },
-							{ id:'waitEnd',title:'待完成',num:0,state:2 },
-							{ id:'waitRefund',title:'退款处理',num:0,state:10 },
+							{ id:'agr',title:'发出的协议',num:0,state:'',icon:'' },
+							{ id:'all',title:'全部订单',num:0,state:'',icon:'' },
+							{ id:'waitConfrim',title:'待确认',num:0,state:9,icon:'' },
+							{ id:'waitPay',title:'待付款',num:0,state:0,icon:'' },
+							{ id:'waitSetOut',title:'待出行',num:0,state:1,icon:'' },
+							{ id:'waitEnd',title:'待完成',num:0,state:2,icon:'' },
+							{ id:'waitRefund',title:'退款处理',num:0,state:10,icon:'' },
 						]
 					},
 				],
