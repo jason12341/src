@@ -218,11 +218,11 @@
 		margin: 10px!important;
 		border-radius: 0px;
 		background-color: #fff;
-		-webkit-box-shadow: 0px 0px 3px 0px rgba(187, 187, 187, 1);
+		-webkit-box-shadow: 0px 0px 3px 0px rgba(187, 187, 187, .6);
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
 		line-height: 20px;
 		border-radius: 4px;
-		box-shadow: 0px 0px 3px 0px rgba(187, 187, 187, 1);
+		box-shadow: 0px 0px 3px 0px rgba(187, 187, 187, .6);
 		border: 1px solid rgba(255, 255, 255, 1);
 	}
 	
@@ -247,9 +247,6 @@
 		float: right;
 	}
 	
-	.clock {
-		color: #FF9800;
-	}
 	/*询价类型*/
 	
 	.ptype {

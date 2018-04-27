@@ -18,7 +18,7 @@
 	background-image: url(../images/line/line_gray_3x.png);
 	height: 15px;
 	background-color: #FFFFFF;
-	background-size: 100%;
+	background-size: 92%;
 	background-position: center;
 	background-repeat: no-repeat;
 	/*width: 100%;
@@ -34,7 +34,7 @@
 .aby-detail-remarks,
 .aby-detail-total {
 	background-color: #FFFFFF;
-	padding: 17px;
+	padding: 5px 17px 17px 17px;
 }
 
 .aby-detail-content .mui-media-object {
@@ -55,7 +55,7 @@
 }
 
 .aby-detail-header h4 {
-	padding: 15px 15px;
+	padding: 10px 15px 20px 15px;
 	margin: 0px;
 }
 
@@ -78,6 +78,8 @@
 
 .aby-detail-publisher {
 	font-size: 13px;
+	padding: 0px 10px;
+	background-color: #FFFFFF;
 }
 
 .aby-detail .mui-table-view:before,

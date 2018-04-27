@@ -261,12 +261,6 @@
 		padding-top: 2px;
 	}
 	
-	
-	.aa {
-		padding: 2%;
-		background-color: #FFFFFF;
-	}
-	
 	.table-bordered>tbody>tr>th,
 	.table-bordered>tfoot>tr>th,
 	.table-bordered>thead>tr>td,
@@ -282,7 +276,7 @@
 	/*消息部分图标*/
 	
 	.imgMsg {
-		height: auto;
+		height: auto!important;
 		margin-top: 3px;
 	}
 	/*底线*/
