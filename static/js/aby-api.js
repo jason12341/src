@@ -737,6 +737,84 @@ const Order = {
 		}; 
 		Server.getDataFromServerPayment('storder/ORDER009.action',requestData,successCallback, errorCallback);
 	},
+	// 取消申请退款
+	cancelApply(requestInfo, successCallback, errorCallback){
+		let requestData = {
+			params:{
+				orderId:requestInfo.orderId,
+			}
+		}; 
+		Server.getDataFromServerPayment('storder/ORDER100.action',requestData,successCallback, errorCallback);
+	},
+	// 同意退款
+	agreeRefund(requestInfo, successCallback, errorCallback){
+		let requestData = {
+			params:{
+				orderId:requestInfo.orderId,
+			}
+		}; 
+		Server.getDataFromServerPayment('storder/orderRefund.action',requestData,successCallback, errorCallback);
+	},
+	// 拒绝退款
+	refuceRefund(requestInfo, successCallback, errorCallback){
+		let requestData = {
+			params:{
+				orderId:requestInfo.orderId,
+				refuceReason:requestInfo.refuceReason,
+			}
+		}; 
+		Server.getDataFromServerPayment('storder/ORDER101.action',requestData,successCallback, errorCallback);
+	},
+	// 获得协议详情
+	getAgreementDetail(requestInfo, successCallback, errorCallback){
+		let requestData = {
+			params:requestInfo
+		}; 
+		Server.getDataFromServerPayment('distributor/CD002.action',requestData,successCallback, errorCallback);
+	},
+	// 确认协议
+	confirmAgreementById(requestInfo, successCallback, errorCallback){
+		let requestData = {
+			params:{
+				id:requestInfo.id,
+				isInvoice:requestInfo.isSelectInvoice,// 是否开票
+				invoiceName:requestInfo.invoiceName,
+				invoiceNumer:requestInfo.invoiceNumer,
+				invoiceContent:requestInfo.invoiceContent,
+				updataTime:requestInfo.updataTime,
+			}
+		}; 
+		Server.getDataFromServerPayment('distributor/CD006.action',requestData,successCallback, errorCallback);
+	},
+	// 修改价格
+	editPrice(requestInfo, successCallback, errorCallback){
+		let requestData = {
+			params:{
+				orderId:requestInfo.orderId,
+				payment:requestInfo.payment,
+			}
+		}; 
+		Server.getDataFromServerPayment('storder/ORDER005.action',requestData,successCallback, errorCallback);
+	},
+	// 添加备注
+	addIntro(requestInfo, successCallback, errorCallback){
+		let requestData = {
+			params:{
+				orderId:requestInfo.orderId,
+				sellerNote:requestInfo.sellerNote,
+			}
+		}; 
+		Server.getDataFromServerPayment('storder/ORDER006.action',requestData,successCallback, errorCallback);
+	},
+	// 确认完成订单
+	transactionCompletion(requestInfo, successCallback, errorCallback){
+		let requestData = {
+			params:{
+				id:requestInfo.id,
+			}
+		}; 
+		Server.getDataFromServerPayment('stpay/paytoseller.action',requestData,successCallback, errorCallback);
+	},
 };
 
 

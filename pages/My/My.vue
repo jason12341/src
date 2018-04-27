@@ -11,9 +11,9 @@
 					<a href="#/homePage">
 						<img class="mui-media-object mui-pull-left personpic" :src="cpUserInfo.cpBasic.cpLogo">
 						<!--组团-->
-						<img class="role" src="../../static/images/ico/ico_role_travel.png" />
+						<img v-if="cpUserInfo.cpBasic.cpBtype==10" class="role" src="../../static/images/ico/ico_role_travel.png" />
 						<!--地接-->
-						<img class="role" src="../../static/images/ico/ioc_role_local.png" />
+						<img v-if="cpUserInfo.cpBasic.cpBtype==20" class="role" src="../../static/images/ico/ioc_role_local.png" />
 						
 						<div class="mui-media-body">
 							{{cpUserInfo.userName}}

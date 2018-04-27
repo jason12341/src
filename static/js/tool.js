@@ -215,10 +215,12 @@ let prompt = function(title, callbacl) {
 		value,
 		action
 	}) => {
-		callbacl && callbacl({
-			value,
-			action
-		})
+		if(action == 1){
+			callbacl && callbacl({
+				value,
+				action
+			})
+		}
 	});
 };
 

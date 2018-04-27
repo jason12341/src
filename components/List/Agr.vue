@@ -1,7 +1,7 @@
 <template>
 	<div class="list-item">
 		<ul class="mui-table-view" v-for="(li,i) in list" :key="i">
-			<li class="mui-table-view-cell mui-media" v-if="identityType == 'seller'" @click="tiDetail(li)">
+			<li class="mui-table-view-cell mui-media" v-if="identityType == 'seller'" @click="toDetail(li)">
 				<img class="mui-media-object mui-pull-left" :src="li.buyerInfo.cpLogo" >
 				<div class="mui-media-body aby-list">
 					<p class="aby-list-title">
@@ -21,7 +21,7 @@
 					<i class="mint-cell-allow-right"></i>
 				</div>
 			</li>
-			<li class="mui-table-view-cell mui-media" v-if="identityType == 'buyer'" @click="tiDetail(li)">
+			<li class="mui-table-view-cell mui-media" v-if="identityType == 'buyer'" @click="toDetail(li)">
 				<img class="mui-media-object mui-pull-left" :src="li.sellerInfo.cpLogo" >
 				<div class="mui-media-body aby-list">
 					<p class="aby-list-title">
@@ -60,8 +60,8 @@
 				this.$router.push({
 					name: 'agrDetail',
 					params: {
-						title: li.mTitle,
-						orderId: li.id
+						agreementId: li.id,
+						identityType: this.identityType
 					}
 				});
 			}

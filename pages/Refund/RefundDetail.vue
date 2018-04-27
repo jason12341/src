@@ -166,30 +166,13 @@
 				if(this.identityType == 'buyer'){
 					// 买家
 					switch (orderState){
-						case 0: bList = [];break;// 待付款
-						case 1: bList =  [];break;// 待出行
-						case 2: bList =  [];break;// 待完成
-						case 3: bList =  [];break;// 已完成
-						case 4: bList =  [];break;// 已取消
-						case 5: bList =  [];break;// 超时关闭
 						case 6: bList =  [2,3];break;// 退款中
-						case 7: bList =  [];break;// 已退款
 						case 8: bList =  [3];break;// 拒绝退款
-						case 9: bList =  [];break;// 待确认
 					}
 				}else if(this.identityType == 'seller'){
 					// 卖家
 					switch (orderState){
-						case 0: bList = [];break;// 待付款
-						case 1: bList =  [];break;// 待出行
-						case 2: bList =  [];break;// 待完成
-						case 3: bList =  [];break;// 已完成
-						case 4: bList =  [];break;// 已取消
-						case 5: bList =  [];break;// 超时关闭
 						case 6: bList =  [1,4];break;// 退款中
-						case 7: bList =  [];break;// 已退款
-						case 8: bList =  [];break;// 拒绝退款
-						case 9: bList =  [];break;// 待确认
 					}
 				}
 				this.btnList.forEach((v,i)=>{
@@ -202,32 +185,36 @@
 			},
 			// 按钮事件
 			onBtn(liObj,btnObj){
-				if(btnObj.id == 3){
-					
-				}else if(btnObj.id == 4){
-					// 修改价格
-					
+				if(btnObj.id == 4){
+					// 拒绝退款
+					this.$tool.prompt('输入价格',(e)=>{
+						let reqInfo = {};
+						reqInfo.orderId = liObj.id;
+						reqInfo.refuceReason = liObj.value;
+						this.$abyApi.Order.refuceRefund(reqInfo,(res)=>{
+							this.getDetail();
+						});
+					});
 				}else{
 					this.$tool.confirm('您确定要'+btnObj.title+'吗？',(res)=>{
 						let reqInfo = {};
 						reqInfo.orderId = liObj.id;
 						if(btnObj.id == 1){
-							// 确认订单
-							this.$abyApi.Order.confirmOrder(reqInfo,(res)=>{
-								this.$emit("eventOrder");
+							// 同意退款
+							this.$abyApi.Order.agreeRefund(reqInfo,(res)=>{
+								this.getDetail();
 							});
 						}else if(btnObj.id == 2){
-							// 取消订单
-							this.$abyApi.Order.cancelOrder(reqInfo,(res)=>{
-								this.$emit("eventOrder");
+							// 取消退款
+							this.$abyApi.Order.cancelApply(reqInfo,(res)=>{
+								this.getDetail();
 							});
-						}else if(btnObj.id == 11){
-							// 删除订单
-							this.$abyApi.Order.deleteOrder(reqInfo,(res)=>{
-								this.$emit("eventOrder");
+						}else if(btnObj.id == 3){
+							// 再次申请
+							this.$abyApi.Order.applyRefund(reqInfo,(res)=>{
+								this.getDetail();
 							});
 						}
-						
 					});
 				}
 			},
