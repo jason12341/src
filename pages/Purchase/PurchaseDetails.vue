@@ -217,7 +217,6 @@
 						</li>
 					</ul>
 				</div>
-				<div class="aby-detail-linegray"></div>
 				<div v-if="data.selectType == 60">
 					<div class="aby-detail-remarks" v-if="data.pbDetail">
 						<p>备注</p>
@@ -225,6 +224,7 @@
 					</div>
 				</div>
 				<div v-else>
+					<div class="aby-detail-linegray" v-if="data.selectDesc!=null||''"></div>
 					<div class="aby-detail-remarks" v-if="data.selectDesc">
 						<p>备注</p>
 						<p>{{data.selectDesc}}</p>
@@ -247,7 +247,7 @@
 				<div class="aby-detail-line"></div>
 				<div class="aby-detail-operation mui-text-center aby-font-blue">
 					<aby-icon type="rob"></aby-icon>
-					联系卖家
+					抢单
 				</div>
 			</div>
 		</div>
@@ -296,7 +296,7 @@
 	.aby-detail-operation,
 	.aby-detail-remarks {
 		background-color: #FFFFFF;
-		padding: 17px;
+		padding: 15px 17px;
 	}
 	
 	.aby-detail-header {
@@ -304,7 +304,7 @@
 	}
 	
 	.aby-detail-header .clock {
-		font-size: 15px;
+		font-size: 16px;
 	}
 	
 	.aby-detail-header .mui-pull-right {
@@ -332,7 +332,7 @@
 	
 	
 	.aby-detail-content h4 {
-		padding: 15px 15px;
+		padding: 15px 15px 30px 15px;
 		margin: 0px;
 		text-align: center;
 	}
