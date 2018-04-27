@@ -7,7 +7,7 @@
 				<p>同意支付10055元 （原付金额：10000元 + 支付宝手续费：55元）</p>
 			</div>
 			<div class="mui-input-row mui-checkbox paymethod space">
-				<label><img class="icopay" src="../../static/images/ico/ico_wechat.png"/>支付宝</label>
+				<label><img class="icopay" src="../../static/images/ico/ico_alipay_3x.png"/>支付宝</label>
 				<input name="checkbox1" value="" type="checkbox" checked="">
 			</div>
 			<div class="aby-button-panel">
