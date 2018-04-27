@@ -1,7 +1,7 @@
 <template>
-	<aby-page class=" aby-bg-white">
+	<aby-page class="aby-bg-white">
 		<aby-header title="注册" slot="header"></aby-header>
-		<div slot="content" class="mui-content  aby-bg-white">
+		<div slot="content" class="mui-content aby-bg-white">
 			<div class="row-input">
 				<aby-field modelId="userPhone" className="aby-input-line aby-input-line-blue" iclassName="mintui mintui-more aby-font-blue" placeholder="请输入手机号" type="tel">
 					<aby-icon id="iconLabel" type="loginid" class="aby-font-blue" slot="icon"></aby-icon>
