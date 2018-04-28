@@ -207,6 +207,10 @@
 					case 'chatface':
 						this.iconClass = '#icon-liaotianbiaoqing';
 						break;
+						//键盘
+					case 'chatkeyboard':
+						this.iconClass = '#icon-jianpan';
+						break;
 						//加号
 					case 'chatplus':
 						this.iconClass = '#icon-liaotianjiahao';
@@ -214,6 +218,10 @@
 						//相机
 					case 'chatcamera':
 						this.iconClass = '#icon-xiangji';
+						break;
+						//照片
+					case 'chatpic':
+						this.iconClass = '#icon-tupian';
 						break;
 						//聊天设置
 					case 'chatsetting':

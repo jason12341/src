@@ -123,10 +123,14 @@
 				//聊天------------------------------------------------------------------------------------
 				//表情
 				case 'chatface':this.iconClass = 'aby-icon-chatface ' + this.className;break;
+				//键盘
+				case 'chatkeyboard':this.iconClass = 'aby-icon-chatkeyboard ' + this.className;break;
 				//加号
 				case 'chatplus':this.iconClass = 'aby-icon-chatplus ' + this.className;break;
 				//相机
 				case 'chatcamera':this.iconClass = 'aby-icon-chatcamera ' + this.className;break;
+				//照片
+				case 'chatpic':this.iconClass = 'aby-icon-chatpic ' + this.className;break;
 				//聊天设置
 				case 'chatsetting':this.iconClass = 'aby-icon-chatsetting ' + this.className;break;
 				//注册、登录-------------------------------------------------------------------------------

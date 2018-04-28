@@ -359,6 +359,12 @@
 	content: '\e66c';
 }
 
+/*键盘*/
+
+.aby-icon-chatkeyboard:before {
+	content: '\e69d';
+}
+
 
 /*加号*/
 
@@ -371,6 +377,12 @@
 
 .aby-icon-chatcamera:before {
 	content: '\e695';
+}
+
+/*照片*/
+
+.aby-icon-chatpic:before {
+	content: '\e69e';
 }
 
 
