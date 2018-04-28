@@ -57,17 +57,7 @@
 		background-color: #FFFFFF;
 		padding: 10px 15px;
 	}
-	.safe{
-		text-align: center;
-		padding-top: 20px;
-	}
-	.safe img{
-		width: 70px;
-	}
-	.safe p{
-		color: #0171B9;
-		font-size: 10px;
-	}
+	
 	.aby-list-title {
 		font-size: 14px!important;
 	}
@@ -77,10 +67,12 @@
 		font-size: 20px;
 		vertical-align: bottom;
 	}
-	.priceover{
+	
+	.priceover {
 		text-align: center;
 	}
-	.priceover h3{
+	
+	.priceover h3 {
 		color: #FF9800!important;
 		font-size: 20px;
 		font-weight: 500;
@@ -88,17 +80,5 @@
 	
 	.mui-checkbox input[type=checkbox] {
 		top: 15px;
-	}
-	
-	.mui-checkbox input[type=checkbox]:before {
-		content: '\E681';
-	}
-	
-	.mui-checkbox input[type=checkbox]:checked:before {
-		color: #08C7B5;
-	}
-	
-	.mui-checkbox input[type=checkbox]:checked:before {
-		content: '\E690';
 	}
 </style>
