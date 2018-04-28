@@ -264,6 +264,10 @@
 					case 'vcodewhit':
 						this.iconClass = '#icon-yanzhengma';
 						break;
+						//企业名称
+					case 'business':
+						this.iconClass = '#icon-gongsi';
+						break;
 						//企业名称-白
 					case 'businesswhite':
 						this.iconClass = '#icon-qiyemingcheng';
