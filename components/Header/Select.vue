@@ -65,13 +65,13 @@
 	}
 	.mui-table-view-cell {
 	    padding: 0;
-	    font-size: 12px;
+	    font-size: 15px;
 	}
 	.mint-popup {
 	    width: 100%;
 	    top: 40px;
 	}
 	.li-active{
-		color: #2AC845;
+		color: #08C7B5;
 	}
 </style>
