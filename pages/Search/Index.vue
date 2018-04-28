@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></div>
+		<div class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" @click="goBack(page)"></div>
 		<mt-search class="searchPanel" v-model="value" cancel-text="取消" @keyup.enter.native="onSearch" placeholder="搜索">
 			<div class="type-page-item  keyWordBtn" v-for="(li,i) in list" :key="i">
 				<div class="mui-pull-left page-item-content aby-font-Black" @click="onSearchType(li.keyword,li.searchType)">
@@ -46,6 +46,14 @@
 			}
 		},
 		methods: {
+			//返回上一页
+			goBack(page) {
+				if(page){
+					this.$router.go(-page)
+				}else{
+					this.$router.back();
+				}
+			},
 			// 根据输入内容显示搜索类型
 			searchProTypeList() {
 				let reqInfo = {};
