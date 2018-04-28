@@ -15,47 +15,60 @@
 
 <script>
 	export default {
-		components: {
-		},
+		components: {},
 		props: ['list'],
 		data() {
-			return {
-			}
+			return {}
 		},
 		methods: {
 			//查看详情
-			toDetail(li){
+			toDetail(li) {
 				this.$router.push({
 					name: 'chat',
 					params: {
-						
+
 					}
 				});
 			}
 		},
 		mounted() {
-			
+
 		},
-		watch: {  
-		    list(val){
-		    	this.list = val;
-		    }  
-		}  
+		watch: {
+			list(val) {
+				this.list = val;
+			}
+		}
 	}
 </script>
 
 <style scoped>
-	.mui-media img{
-		max-width: 50px;
-		height: 50px;
+	.mui-table-view-cell {
+		padding: 13px 15px;
 	}
-	.mui-media-body p{
-		padding-right: 20px;
+	
+	.mui-table-view .mui-media-object {
+		width: 45px;
+		height: 45px;
+		max-width: 45px;
+		border-radius: 4px;
 	}
-	.state-blue{
+	
+	.mui-media-body {
+		padding-top: 2px;
+	}
+	
+	.state-blue {
 		color: #08C7B5;
 	}
-	.state-gray{
+	
+	.state-gray {
 		color: #AAAAAA;
+	}
+	
+	.mui-badge {
+		right: auto!important;
+		left: 45px;
+		top: 25%!important;
 	}
 </style>
