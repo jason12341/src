@@ -63,6 +63,6 @@
 	}
 	.mui-media-body{
 		padding-top: 2px;
-		font-size: 15px;
+		font-size: 16px;
 	}
 </style>
