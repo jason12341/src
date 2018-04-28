@@ -2,7 +2,7 @@
 	<ul class="mui-table-view space">
 		<li class="mui-table-view-cell mui-media" @click="toDetail">
 			<a>
-				<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png">
+				<img class="mui-media-object mui-pull-left" src="../../static/images/logo/logo.png">
 				<span class="mui-badge mui-badge-danger">2</span>
 				<div class="mui-media-body">
 					李小白

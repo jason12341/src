@@ -3,7 +3,7 @@
 		<!--订单列表-->
 		<div class="mui-card space" v-for="(li,i) in list" :key="i">
 			<div class="mui-card-header mui-card-media">
-				<img src="../../static/images/logo.png">
+				<img src="../../static/images/logo/logo.png">
 				<div class="mui-media-body">
 					{{li.orderTypeDesc}}｜{{li.orderCode}}
 					<span class="state">{{li.orderStateDesc}}</span>

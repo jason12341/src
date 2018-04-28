@@ -3,7 +3,7 @@
 		<div class="mint-search">
 			<div class="mint-searchbar">
 				<div class="mint-searchbar-inner">
-					<i class="mintui mintui-search"></i>
+					<aby-icon type="search" class="aby-font-gray"></aby-icon>
 					<input type="search" :placeholder="inputPlaceholder" v-model="searchValue" :disabled="inputDisabled" class="mint-searchbar-core">
 				</div> 
 			</div> 
@@ -48,16 +48,22 @@
 		color: #BBBBBB;
 	}
 	
+	input[type=search] {
+		padding: 10px 15px 10px 5px;
+	}
+	
 	.mint-searchbar,
 	.mint-searchbar-inner {
 		background-color: #F0F0F0;
 	}
-	.mint-searchbar{
+	
+	.mint-searchbar {
 		padding: 2px 10px;
 		margin-top: 6px;
 		border-radius: 15px;
 	}
-	.mint-searchbar-inner i{
+	
+	.mint-searchbar-inner i {
 		color: #BBBBBB;
 		font-size: 17px;
 	}
