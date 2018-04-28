@@ -25,7 +25,9 @@
 					<a class="mui-navigate-right">客服电话：<span @click="onDialTel" class="fontGrayBlue floatRight">{{tel}}</span></a>
 				</li>
 			</ul>
-			<aby-button title="退出登录" class="btnFixed" @click.native="onLogExit"></aby-button>
+			<div class="aby-button-panel">
+				<aby-button class="aby-button-blue" title="退出登录" @click.native="onLogExit"></aby-button>
+			</div>
 		</div>
 	</aby-page>
 </template>
@@ -67,5 +69,13 @@
 		padding-top: 15px;
 		padding-bottom: 15px;
 		padding-left: 15px;
+	}
+	
+	.mui-navigate-right:after,
+	.mui-push-right:after {
+		top: 24px;
+	}
+	.aby-button-panel{
+		margin-top: 50px;
 	}
 </style>
