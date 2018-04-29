@@ -373,7 +373,16 @@ const User = {
 			smsType: requestInfo.smsType
 		};
 		Server.getDataFromServer('cpUser', requestData, successCallback, errorCallback)
-	}
+	},
+	// 获得企业信息
+	getBasciInfo(requestInfo, successCallback, errorCallback){
+		let requestData = {
+			loading:requestInfo.loading,
+			act: 'CPU106',
+			userId: requestInfo.userId
+		};
+		Server.getDataFromServer('cpUser', requestData, successCallback, errorCallback)
+	},
 };
 
 /******************************      Project 产品模块      *****************************/

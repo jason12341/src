@@ -9,21 +9,131 @@
 		</aby-header>
 		<div class="mui-content" slot="content">
 			<div id='msg-list'>
+				<div class="msg-item" v-for="(li,i) in msgList" :key="i" :class="li.messageDirection == 1 ? 'msg-item-self' : ''">
+					<img class="msg-user-img msg-user mui-icon selfHead" :src="li.sendUser.userFace" alt="" />
+					<div class="msg-content">
+						<div class="msg-content-inner" v-if="li.content.messageName=='TextMessage'">
+							{{toFaceHtml(li.content.content)}}
+						</div>
+						<div class="msg-content-inner" v-if="li.content.messageName=='ImageMessage'">
+							<img :src="li.content.content" id="imgMessage" data-preview-src="${item.content.imageUri}" data-preview-group="1">
+						</div>
+						<div class="msg-content-arrow"></div>
+					</div>
+					<span class="mui-spinner sendStatus"></span> 
+					<div class="mui-item-clear"></div>
+				</div>
 			</div>
 		</div>
-		<footer slot="footer" id="123">
-			<div class="footer-center">
-				<textarea id='msg-text' type="text" class='input-text'></textarea>
+		<div slot="footer">
+			<footer ref="footer">
+				<div class="footer-center">
+					<textarea v-model="msgtext" @focus="focus" type="text" class='input-text'></textarea>
+				</div>
+				<label class="footer-right">
+					<aby-icon class="mui-icon icon-face" type="chatface" @click.native="onFace"></aby-icon>
+					<aby-icon class="mui-icon icon-plus" type="chatplus" @click.native="onMore" v-show="msgtext==''"></aby-icon>
+					<aby-icon class="mui-icon icon-face" type="hotel" @click.native="onSend" v-show="msgtext!=''"></aby-icon>
+				</label>
+			</footer>
+			<div class="tool_panel" v-show="isShowFace" v-html="faceArr" @click="onFaceTip($event)"></div>
+			<div class="tool_else_panel" v-show="isShowMore">
+				<aby-icon class="mui-icon icon-face" type="chatpic" @click.native="onCamera"></aby-icon>图片
 			</div>
-			<label class="footer-right">
-				<aby-icon class="mui-icon icon-face" type="chatface"></aby-icon>
-				<aby-icon class="mui-icon icon-plus" type="chatplus"></aby-icon>
-			</label>
-		</footer>
+		</div>
 	</aby-page>
 </template>
 
 <script>
+	require('../../static/lib/RongImLib/RongEmoji-2.2.6.min.js')
+	require('../../static/lib/RongImLib/RongIMLib-2.3.1.min.js')
+	export default {
+		components: {
+		},
+		data() {
+			return {
+				isShowFace:false,//是否显示表情
+				isShowMore:false,//是否显示更多按钮
+				faceArr:[],
+				msgtext:'',//消息内容
+				userId:'',//用户ID
+				userInfo:'',//用户信息
+				msgList:[],//消息列表
+			}
+		},
+		methods:{
+			init(){
+				// 初始化融云
+				RongIMLib.RongIMEmoji.init();
+				let emijiArrr = RongIMLib.RongIMEmoji.emojis;// 获取表情列表
+				var emojiArrHtml = "";
+				for(var i in emijiArrr) {
+					emojiArrHtml = emojiArrHtml + emijiArrr[i].innerHTML;
+				}
+				this.faceArr = emojiArrHtml;
+			},
+			// 表情转换
+			toFaceHtml(data){
+				return abyChat.receiveEmojiMsg(data);
+			},
+			// 点击表情按钮
+			onFace(){
+				if(this.isShowFace){
+					this.$refs.footer.className = '';
+					this.isShowFace = false;
+					this.isShowMore = false;
+				}else{
+					this.$refs.footer.className = 'editFooter';
+					this.isShowFace = true;
+					this.isShowMore = false;
+				}
+			},
+			// 点击更多按钮
+			onMore(){
+				if(this.isShowMore){
+					this.$refs.footer.className = '';
+					this.isShowFace = false;
+					this.isShowMore = false;
+				}else{
+					this.$refs.footer.className = 'editFooter';
+					this.isShowFace = false;
+					this.isShowMore = true;
+				}
+			},
+			// 表情选择
+			onFaceTip(e){
+				let emoji = e.target.parentNode.getAttribute("name");
+				emoji = RongIMLib.RongIMEmoji.symbolToEmoji(emoji);
+				this.msgtext = this.msgtext + emoji;
+			},
+			// 点击相机
+			onCamera(){
+				this.$tool.getPhoto((file) => {
+					
+				});
+			},
+			// 输入框获得焦点
+			focus(){
+				this.$refs.footer.className = '';
+				this.isShowFace = false;
+				this.isShowMore = false;
+			},
+			// 发送消息
+			onSend(){
+				this.msgtext = '';
+			},
+			// 获得用户信息
+			getUserInfo(){
+				let reqInfo = { userId:this.userId };
+				this.$abyApi.User.getBasciInfo(reqInfo,(res)=>{
+					this.userInfo = res.cpUserInfo;
+				});
+			}
+		},
+		mounted() {
+			this.init();
+		},
+	}
 </script>
 
 <style scoped>
@@ -234,5 +344,20 @@
 		line-height: 100%;
 		padding-top: 6px;
 		color: rgba(0, 135, 250, 1);
+	}
+	.tool_else_panel,
+	.tool_panel {
+	    position: fixed;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    padding: 2px;
+	    width: 100%;
+	    height: 150px;
+	    overflow-y: scroll;
+	}
+	.editFooter {
+		bottom: 150px!important;
+		position: fixed!important;
 	}
 </style>
