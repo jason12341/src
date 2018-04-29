@@ -4,7 +4,7 @@
 		<div class="content" ref="content">
 			<div class="mui-content aby-bg-login">
 				<div class="divLogo">
-					<img class="logo" src="../../static/images/logo_white.png" />
+					<img class="logo" src="../../static/images/logo/logo_white.png" />
 				</div>
 				<div class="row-input">
 					<aby-field modelId="loginId" className="aby-input-line" iclassName="mintui mintui-more aby-font-white" placeholder="请输入手机号" type="tel">

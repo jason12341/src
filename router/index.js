@@ -74,6 +74,8 @@ import MyPurchaseDetails from '../pages/My/MyPurchaseDetails'
 import MyCollection from '../pages/My/MyCollection'
 //我的产品库
 import MyProduct from '../pages/My/MyProduct'
+//我的质保金
+import MyGold from '../pages/My/MyGold.vue'
 
 //店铺主页
 import HomePage from '../pages/HomePage/HomePage.vue'
@@ -138,6 +140,7 @@ const router = new Router({
 		{ name: 'myPurchaseDetails',path: '/myPurchaseDetails', component: MyPurchaseDetails},
 		{ name: 'myCollection',path: '/myCollection', component: MyCollection},
 		{ name: 'myProduct',path: '/myProduct', component: MyProduct},
+		{ name: 'myGold',path: '/MyGold', component: MyGold},
 		// 搜索
 		{ name: 'search',path: '/search',component: Search },
 		{ name: 'searchResult',path: '/searchResult',component: SearchResult },
