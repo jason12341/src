@@ -3,7 +3,7 @@
 		<!--订单列表-->
 		<div class="mui-card space" v-for="(li,i) in list" :key="i">
 			<div class="mui-card-header mui-card-media">
-				<img src="../../static/images/logo.png">
+				<img src="../../static/images/logo/logo.png">
 				<div class="mui-media-body">
 					{{li.orderTypeDesc}}｜{{li.orderCode}}
 					<span class="state">{{li.orderStateDesc}}</span>
@@ -103,9 +103,27 @@
 			// 按钮事件
 			onBtn(liObj,btnObj){
 				if(btnObj.id == 3){
-					
+					// 订单备注
+					this.$tool.prompt('输入备注内容',(e)=>{
+						let reqInfo = {};
+						reqInfo.orderId = liObj.id;
+						reqInfo.sellerNote = e.sellerNote;
+						this.$abyApi.Order.confirmOrder(reqInfo,(res)=>{
+							this.$emit("eventOrder");
+						});
+					});
 				}else if(btnObj.id == 4){
 					// 修改价格
+					this.$tool.prompt('输入价格',(e)=>{
+						let reqInfo = {};
+						reqInfo.orderId = liObj.id;
+						reqInfo.payment = e.value;
+						this.$abyApi.Order.confirmOrder(reqInfo,(res)=>{
+							this.$emit("eventOrder");
+						});
+					})
+				}else if(btnObj.id == 5){
+					// 去支付
 					
 				}else if(btnObj.id == 6){
 					// 申请退款
@@ -116,6 +134,9 @@
 							identityType:this.identityType
 						}
 					});
+				}else if(btnObj.id == 7){
+					// 退款处理
+					
 				}else if(btnObj.id == 8){
 					// 退款详情
 					this.$router.push({
@@ -137,6 +158,16 @@
 						}else if(btnObj.id == 2){
 							// 取消订单
 							this.$abyApi.Order.cancelOrder(reqInfo,(res)=>{
+								this.$emit("eventOrder");
+							});
+						}else if(btnObj.id == 9){
+							// 取消申请退款
+							this.$abyApi.Order.cancelApply(reqInfo,(res)=>{
+								this.$emit("eventOrder");
+							});
+						}else if(btnObj.id == 10){
+							// 确认订单
+							this.$abyApi.Order.transactionCompletion(reqInfo,(res)=>{
 								this.$emit("eventOrder");
 							});
 						}else if(btnObj.id == 11){

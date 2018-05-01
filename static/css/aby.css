@@ -17,6 +17,7 @@ body,
 body {
 	background-color: #F0F0F0;
 	color: #232323;
+	font-size: 15px;
 }
 
 .page {
@@ -52,13 +53,13 @@ body {
 }
 
 .mui-bar-nav {
-    -webkit-box-shadow: 0 0px 0px #ccc;
-    box-shadow: 0 0px 0px #ccc;
+	-webkit-box-shadow: 0 0px 0px #ccc;
+	box-shadow: 0 0px 0px #ccc;
 }
 
 .content {
 	position: absolute;
-	top: 45px;
+	top: 44px;
 	width: 100%;
 	bottom: 0px;
 	overflow: auto;
@@ -80,37 +81,24 @@ body {
 
 /*左右滑动*/
 
-.slide-left-enter-active,
-.slide-left-leave-active,
-.slide-right-enter-active,
-.slide-right-leave-active {
-	will-change: transform;
-	transition: all 250ms;
-	height: 100%;
-	top: 0;
+.Router {
 	position: absolute;
-	backface-visibility: hidden;
-	perspective: 1000;
+	width: 100%;
+	transition: all .2s ease;
 }
 
-.slide-left-enter {
+.slide-left-enter,
+.slide-right-leave-active {
 	opacity: 0;
-	transform: translate3d(-100%, 0, 0);
+	-webkit-transform: translate(-100%, 0);
+	transform: translate(-100%, 0);
 }
 
-.slide-left-leave-active {
-	opacity: 0;
-	transform: translate3d(100%, 0, 0);
-}
-
+.slide-left-leave-active,
 .slide-right-enter {
 	opacity: 0;
-	transform: translate3d(100%, 0, 0);
-}
-
-.slide-right-leave-active {
-	opacity: 0;
-	transform: translate3d(-100%, 0, 0);
+	-webkit-transform: translate(100%, 0);
+	transform: translate(100% 0);
 }
 
 .fade-enter-active,
@@ -197,6 +185,10 @@ body {
 	_display: inline
 }
 
+.pt-45 {
+	padding-top: 45px;
+}
+
 
 /*-----------------------------------------------间距样式-----------------------------------------------*/
 
@@ -219,6 +211,13 @@ body {
 
 /*-----------------------------------------------列表样式-----------------------------------------------*/
 
+.mui-table-view:before,
+.mui-table-view:after,
+.mui-table-view-cell:after,
+.mui-card-footer:before,
+.mui-card-header:after,
+.mui-input-group:before,
+.mui-input-group:after,
 .mui-table-view:before,
 .mui-table-view:after,
 .mui-table-view-cell:after {
@@ -307,9 +306,12 @@ small {
 	font-weight: 400;
 }
 
-.mui-navigate-right:after, .mui-push-right:after {
-    right: 10px;
+.mui-navigate-right:after,
+.mui-push-right:after {
+	right: 10px;
 }
+
+
 /*-----------------------------------------按钮样式----------------------------------------*/
 
 
@@ -322,7 +324,7 @@ small {
 .aby-button-fixed,
 .aby-button-blue,
 .aby-button-line-blue {
-	font-size: 14px;
+	font-size: 16px;
 }
 
 
@@ -597,6 +599,17 @@ small {
 	color: #FFFFFF;
 }
 
+.aby-font-gray {
+	color: #AAAAAA;
+}
+
+
+/*倒计时*/
+
+.font-clock {
+	color: #FF9800;
+}
+
 
 /*-----------------------------------------下拉菜单样式----------------------------------------*/
 
@@ -665,9 +678,43 @@ small {
 .mint-navbar .mint-tab-item .mint-tab-item-label {
 	font-size: 14px!important;
 }
+
 .mui-bar-tab .mui-tab-item.mui-active {
-    color: #08C7B5;
+	color: #08C7B5;
 }
+
 .mui-bar {
-    background-color: #FFFFFF;
+	background-color: #FFFFFF;
+}
+
+
+/*----------------------------------------- 复选框 ----------------------------------------*/
+
+.mui-checkbox input[type=checkbox]:before {
+	content: '\E681';
+}
+
+.mui-checkbox input[type=checkbox]:checked:before {
+	color: #08C7B5;
+}
+
+.mui-checkbox input[type=checkbox]:checked:before {
+	content: '\E690';
+}
+
+
+/*通联支付说明*/
+
+.safe {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.safe img {
+	width: 70px;
+}
+
+.safe p {
+	color: #0171B9;
+	font-size: 10px;
 }

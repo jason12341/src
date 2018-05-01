@@ -4,16 +4,16 @@
 		<div slot="content" class="mui-content aby-bg-white">
 			<div class="row-input">
 				<aby-field modelId="cpBasic.cpName" className="aby-input-line aby-input-line-blue" iclassName="mintui mintui-more aby-font-blue" placeholder="请输入企业名称" type="text">
-					<i slot="allowRight"></i>
+					<aby-icon id="iconLabel" type="business" class="aby-font-blue" slot="icon"></aby-icon>
 				</aby-field>
 				<aby-field modelId="cpBasic.cpChartered" className="aby-input-line aby-input-line-blue" iclassName="mintui mintui-more aby-font-blue" placeholder="请输入营业执照编号" type="text">
-					<i slot="allowRight"></i>
+					<aby-icon id="iconLabel" type="licensewhite" class="aby-font-blue" slot="icon"></aby-icon>
 				</aby-field>
 				<aby-field modelId="cpBasic.cpCorpName" className="aby-input-line aby-input-line-blue" iclassName="mintui mintui-more aby-font-blue" placeholder="请输入您的姓名" type="text">
-					<i slot="allowRight"></i>
+					<aby-icon id="iconLabel" type="name" class="aby-font-blue" slot="icon"></aby-icon>
 				</aby-field>
 				<aby-field modelId="cpBasic.cpCorpID" className="aby-input-line aby-input-line-blue" iclassName="mintui mintui-more aby-font-blue" placeholder="请输入您的身份证号" type="text">
-					<i slot="allowRight"></i>
+					<aby-icon id="iconLabel" type="IDwhite" class="aby-font-blue" slot="icon"></aby-icon>
 				</aby-field>
 			</div>
 			<div class="space"></div>
@@ -98,16 +98,24 @@
 
 <style>
 	.row-input {
+		padding: 0px 20px;
+		margin-top: 20px;
+	}
+	
+	.row-button {
+		padding: 30px 30px 0px 30px;
+	}
+	/*.row-input {
 		padding: 0px 10px;
 		margin-top: 20px;
 	}
 	
 	.row-button {
 		padding: 20px 10px 50px 10px;
-	}
+	}*/
 	
 	.row-link {
-		padding: 15px 10px 0px 10px;
+		padding: 15px 30px 0px 30px;
 		font-size: 14px;
 	}
 	
@@ -116,7 +124,7 @@
 	}
 	/*两行两列图片排序*/
 	.imgListTwoTwo{
-		padding: 0px 20px;
+		padding: 0px 30px;
 	}
 	
 	.imgListTwoTwo div {
@@ -140,28 +148,12 @@
 		background-repeat: no-repeat;
 	}
 	
-	.mui-icon {
-		position: absolute;
-		z-index: 2;
-		top: -5px;
-		right: -5px;
-		font-size: 30px;
-	}
-	
 	.icon-bg {
 		background-color: #2091E1;
 		border-radius: 50%;
 		color: #FFFFFF;
 	}
-	/*标题为ico的输入框行样式*/
-	
-	.mui-input-row label {
-		width: 15%;
-	}
-	
-	.mui-input-row label~input {
-		width: 85%;
-	}
+
 	
 	.imgList_10 {
 		background-image: url(../../static/images/btn/btn_Lisense.png);

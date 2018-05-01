@@ -1,20 +1,20 @@
 <template>
-	<aby-page class=" aby-bg-white">
+	<aby-page class="aby-bg-white">
 		<aby-header title="注册" slot="header"></aby-header>
-		<div slot="content" class="mui-content  aby-bg-white">
+		<div slot="content" class="mui-content aby-bg-white">
 			<div class="row-input">
 				<aby-field modelId="userPhone" className="aby-input-line aby-input-line-blue" iclassName="mintui mintui-more aby-font-blue" placeholder="请输入手机号" type="tel">
-					<i slot="allowRight"></i>
+					<aby-icon id="iconLabel" type="loginid" class="aby-font-blue" slot="icon"></aby-icon>
 				</aby-field>
 				<aby-field modelId="verycode" className="aby-input-line aby-input-line-blue" iclassName="mintui mintui-more aby-font-blue" placeholder="请输入验证码" type="number">
-					<i slot="allowRight"></i>
+					<aby-icon id="iconLabel" type="vcode" class="aby-font-blue" slot="icon"></aby-icon>
 				</aby-field>
 				<input type="button" class="mui-btn btnVerificationCode" id="btnVerificationCode" @click="getVerificationCode" value="获取验证码">
 				<aby-field modelId="userPassword" className="aby-input-line aby-input-line-blue" iclassName="mintui mintui-more aby-font-blue" placeholder="请设置密码" type="password">
-					<i slot="allowRight"></i>
+					<aby-icon id="iconLabel" type="pwd" class="aby-font-blue" slot="icon"></aby-icon>
 				</aby-field>
 				<aby-field modelId="userPassword_confirm" className="aby-input-line aby-input-line-blue" iclassName="mintui mintui-more aby-font-blue" placeholder="请重复密码" type="password">
-					<i slot="allowRight"></i>
+					<aby-icon id="iconLabel" type="pwd" class="aby-font-blue" slot="icon"></aby-icon>
 				</aby-field>
 			</div>
 			<div class="row-button">

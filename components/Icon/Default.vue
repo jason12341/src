@@ -24,6 +24,8 @@
 				case 'message':this.iconClass = 'aby-icon-message ' + this.className;break;
 										
 				//询价类型图标-----------------------------------------------------------------------------
+				//线路
+				case 'line':this.iconClass = 'aby-icon-line ' + this.className;break;
 				//导游
 				case 'guide':this.iconClass = 'aby-icon-guide ' + this.className;break;
 				//酒店
@@ -121,10 +123,14 @@
 				//聊天------------------------------------------------------------------------------------
 				//表情
 				case 'chatface':this.iconClass = 'aby-icon-chatface ' + this.className;break;
+				//键盘
+				case 'chatkeyboard':this.iconClass = 'aby-icon-chatkeyboard ' + this.className;break;
 				//加号
 				case 'chatplus':this.iconClass = 'aby-icon-chatplus ' + this.className;break;
 				//相机
 				case 'chatcamera':this.iconClass = 'aby-icon-chatcamera ' + this.className;break;
+				//照片
+				case 'chatpic':this.iconClass = 'aby-icon-chatpic ' + this.className;break;
 				//聊天设置
 				case 'chatsetting':this.iconClass = 'aby-icon-chatsetting ' + this.className;break;
 				//注册、登录-------------------------------------------------------------------------------
@@ -146,6 +152,8 @@
 				case 'vcode':this.iconClass = 'aby-icon-vcode ' + this.className;break;
 				//验证码-白
 				case 'vcodewhit':this.iconClass = 'aby-icon-vcodewhit ' + this.className;break;
+				//企业名称
+				case 'business':this.iconClass = 'aby-icon-business ' + this.className;break;
 				//企业名称-白
 				case 'businesswhite':this.iconClass = 'aby-icon-businesswhite ' + this.className;break;
 				//职位

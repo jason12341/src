@@ -6,7 +6,6 @@
 				<li class="mui-table-view-cell liRefundPrice">
 					<aby-field modelId="refundPrice" className="aby-input-default" placeholder="请输退款金额" type="number">
 						<label class="inLabel" slot="label">退款金额</label>
-						<i slot="allowRight"></i>
 					</aby-field>
 					<span class="maxPrice">最多￥{{payment}}</span>
 				</li>
@@ -16,7 +15,6 @@
 				<li class="mui-table-view-cell liRefundRemark">
 					<aby-field modelId="refundDesc" className="aby-input-area" placeholder="请输入申请退款原因" type="textarea" rows="5">
 						<label class="areaLabel" slot="label">退款说明</label>
-						<i slot="allowRight"></i>
 					</aby-field>
 				</li>
 			</ul>

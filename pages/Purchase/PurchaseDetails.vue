@@ -3,9 +3,15 @@
 		<aby-header title="询价详情" slot="header"></aby-header>
 		<div slot="content" class="mui-content">
 			<div class="aby-detail" v-if="data">
-				<div class="aby-detail-header">
-					<aby-icon className="mui-pull-right" type="clock"></aby-icon>
+				<div class="aby-detail-header font-clock">
+					<aby-icon type="clock" class="clock"></aby-icon>
 					<span :id="data.selectId"></span>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 10" type="line"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 20" type="hotel"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 30" type="pticket"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 40" type="planhotel"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 50" type="sticket"></aby-icon-color>
+					<aby-icon-color class="ptype mui-pull-right" v-if="data.selectType == 60" type="guide"></aby-icon-color>
 				</div>
 				<div class="aby-detail-line"></div>
 				<div class="aby-detail-content">
@@ -52,7 +58,7 @@
 					<!--酒店询价-->
 					<ul class="mui-table-view" v-if="data.selectType == 20||data.selectType == 40">
 						<h4>{{data.title}}</h4>
-						<li class="mui-table-view-cell mui-media">
+						<li class="mui-table-view-cell mui-media" v-if="data.hotelAddress">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">酒店地点</div>
 								<div class="mui-media-body mui-text-right">{{data.hotelAddress}}</div>
@@ -61,13 +67,13 @@
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">入住时间</div>
-								<div class="mui-media-body mui-text-right">{{data.liveTime}}</div>
+								<div class="mui-media-body mui-text-right">{{data.liveTime | filterConvertDate}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">离店时间</div>
-								<div class="mui-media-body mui-text-right">{{data.backTime}}</div>
+								<div class="mui-media-body mui-text-right">{{data.backTime | filterConvertDate}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
@@ -101,20 +107,20 @@
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">航程类型</div>
-								<div class="mui-media-body mui-text-right">{{data.trafficType}}</div>
+								<div class="mui-media-body mui-text-right">{{data.ticketType}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">出发时间</div>
-								<div class="mui-media-body mui-text-right">{{data.fromTime}}</div>
+								<div class="mui-media-body mui-text-right">{{data.fromTime | filterConvertDate}}</div>
 							</a>
 						</li>
 						<!--航程类型为单程的时候没有返回时间-->
 						<li class="mui-table-view-cell mui-media" v-if="data.backTime!==''">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">返程时间</div>
-								<div class="mui-media-body mui-text-right">{{data.backTime}}</div>
+								<div class="mui-media-body mui-text-right">{{data.backTime | filterConvertDate}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
@@ -136,7 +142,7 @@
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">游玩时间</div>
-								<div class="mui-media-body mui-text-right">{{data.playScenicTime}}</div>
+								<div class="mui-media-body mui-text-right">{{data.playScenicTime | filterConvertDate}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
@@ -148,73 +154,81 @@
 					</ul>
 					<!--导游询价-->
 					<ul class="mui-table-view" v-if="data.selectType == 60">
-						<h4>寻找嘉兴导游</h4>
+						<h4>{{data.pbTitle}}</h4>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">目的地</div>
-								<div class="mui-media-body mui-text-right">嘉兴</div>
+								<div class="mui-media-body mui-text-right">{{data.pbRoadLine}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">接团地</div>
-								<div class="mui-media-body mui-text-right">嘉兴</div>
+								<div class="mui-media-body mui-text-right">{{data.pbAddress}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">出行时间</div>
-								<div class="mui-media-body mui-text-right">2018-07-14</div>
+								<div class="mui-media-body mui-text-right">{{data.pbDateTime}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">天数</div>
-								<div class="mui-media-body mui-text-right">7天</div>
+								<div class="mui-media-body mui-text-right">{{data.pbDays}}天</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">导服费</div>
-								<div class="mui-media-body mui-text-right">500元／天</div>
+								<div class="mui-media-body mui-text-right">{{data.pbDayFee}}元／天</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">定金</div>
-								<div class="mui-media-body mui-text-right">500元</div>
+								<div class="mui-media-body mui-text-right">{{data.pbDepositFee}}元</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">性别</div>
-								<div class="mui-media-body mui-text-right">女</div>
+								<div class="mui-media-body mui-text-right">{{data.pbSex}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">精通语言</div>
-								<div class="mui-media-body mui-text-right">中文</div>
+								<div class="mui-media-body mui-text-right">{{data.pbLanguges}}</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">从业年限</div>
-								<div class="mui-media-body mui-text-right">3年</div>
+								<div class="mui-media-body mui-text-right">{{data.pbYears}}年</div>
 							</a>
 						</li>
 						<li class="mui-table-view-cell mui-media">
 							<a href="javascript:;">
 								<div class="mui-media-object mui-pull-left">业务范围</div>
-								<div class="mui-media-body mui-text-right">不限</div>
+								<div class="mui-media-body mui-text-right">{{data.pbBranched}}</div>
 							</a>
 						</li>
 					</ul>
 				</div>
-				<div class="aby-detail-line"></div>
-				<div class="aby-detail-remarks">
-					<p>备注</p>
-					<p>{{data.selectDesc}}</p>
+				<div v-if="data.selectType == 60">
+					<div class="aby-detail-remarks" v-if="data.pbDetail">
+						<p>备注</p>
+						<p>{{data.pbDetail}}</p>
+					</div>
+				</div>
+				<div v-else>
+					<div class="aby-detail-linegray" v-if="data.selectDesc!=null||''"></div>
+					<div class="aby-detail-remarks" v-if="data.selectDesc">
+						<p>备注</p>
+						<p>{{data.selectDesc}}</p>
+					</div>
 				</div>
 				<div class="aby-detail-line"></div>
 				<div class="aby-detail-publisher">
@@ -231,9 +245,9 @@
 					</ul>
 				</div>
 				<div class="aby-detail-line"></div>
-				<div class="aby-detail-operation mui-text-center">
-					<aby-icon className="mui-pull-message" type="message"></aby-icon>
-					联系卖家
+				<div class="aby-detail-operation mui-text-center aby-font-blue">
+					<aby-icon type="rob"></aby-icon>
+					抢单
 				</div>
 			</div>
 		</div>
@@ -249,43 +263,54 @@
 		},
 		data() {
 			return {
-				selectId:this.$route.params.selectId,
-				data:'',
+				selectId: this.$route.params.selectId,
+				data: '',
 			}
 		},
 		methods: {
-			
+
 		},
 		mounted() {
 			let reqInfo = {};
 			reqInfo.loading = 1;
 			reqInfo.selectId = this.selectId;
-			this.$abyApi.Select.getPublishDetail(reqInfo,(res)=>{
+			this.$abyApi.Select.getPublishDetail(reqInfo, (res) => {
 				this.data = res.cpSelect;
 				this.$refs.page.isLoading = false;
-			},(err)=>{this.$refs.page.isLoading = false;});
+			}, (err) => {
+				this.$refs.page.isLoading = false;
+			});
 		},
 	}
 </script>
 
 <style scoped>
-/*详情容器*/
+	/*详情容器*/
 	
 	.aby-detail {
 		padding: 10px;
 		margin: 0;
 	}
 	
-	.aby-detail-line {
-		background-color: #FFFFFF;
-		border-bottom: 1px dashed #DDDDDD;
-	}
-	
 	.aby-detail-header,
 	.aby-detail-operation,
 	.aby-detail-remarks {
 		background-color: #FFFFFF;
-		padding: 17px;
+		padding: 15px 17px;
+	}
+	
+	.aby-detail-header {
+		font-size: 14px;
+	}
+	
+	.aby-detail-header .clock {
+		font-size: 16px;
+	}
+	
+	.aby-detail-header .mui-pull-right {
+		width: 24px;
+		height: 24px;
+		margin-top: -2px;
 	}
 	
 	.aby-detail-content .mui-media-object {
@@ -302,11 +327,11 @@
 	}
 	
 	.aby-detail-content .mui-table-view-cell {
-		padding: 8px 15px;
+		padding: 8px;
 	}
 	
 	.aby-detail-content h4 {
-		padding: 15px 15px;
+		padding: 15px 15px 30px 15px;
 		margin: 0px;
 		text-align: center;
 	}
@@ -316,4 +341,5 @@
 	.mui-table-view-cell:after {
 		height: 0px;
 	}
+
 </style>

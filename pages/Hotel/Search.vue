@@ -17,8 +17,12 @@
 							<span></span>
 						</div>
 						<i class="mint-cell-allow-right"></i>
-						<aby-button title="当前位置" size="small" @click.native="onSelectCity">
-						</aby-button>
+						<div class="btnSelCity" @click="onSelectCity">
+							<aby-icon type="nowlocation"></aby-icon>
+							<p>当前位置</p>
+						</div>
+						<!--<aby-button title="当前位置" size="small" @click.native="onSelectCity">
+						</aby-button>-->
 					</div>
 					<div class="mint-cell-right"></div>
 				</div>
@@ -29,7 +33,7 @@
 					</div>
 				</div>
 				<div class="mint-cell">
-					<aby-button title="查询" @click.native="onSearch"></aby-button>
+					<aby-button title="查询" @click.native="onSearch" class="aby-input-button-blueF"></aby-button>
 				</div>
 			</div>
 		</div>
@@ -46,7 +50,7 @@
 		data() {
 			return {
 				keyword: '',
-				cityName: this.$route.params.cityName||'北京'
+				cityName: this.$route.params.cityName || '北京'
 			}
 		},
 		methods: {
@@ -61,7 +65,7 @@
 				});
 			},
 			// 选择城市
-			onSelectCity(){
+			onSelectCity() {
 				this.$router.push({
 					name: 'cityList',
 					params: {
@@ -99,5 +103,14 @@
 	.mint-cell-allow-right::after {
 		right: 120px;
 		position: absolute;
+	}
+	
+	.btnSelCity{
+		text-align: center;
+		color: #08C7B5;
+	}
+	.btnSelCity p{
+		font-size: 12px;
+		margin-top: 10px;
 	}
 </style>

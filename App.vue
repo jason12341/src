@@ -2,12 +2,12 @@
 	<div id="app">
 		<transition :name="pageDirection">
 			<keep-alive>
-				<router-view v-if="!$route.meta.noKeepAlive"></router-view>
+				<router-view v-if="!$route.meta.noKeepAlive" class="Router"></router-view>
 			</keep-alive>
 		</transition>
 
 		<transition :name="pageDirection">
-			<router-view v-if="$route.meta.noKeepAlive"></router-view>
+			<router-view v-if="$route.meta.noKeepAlive" class="Router"></router-view>
 		</transition>
 	</div>
 </template>

@@ -2,57 +2,64 @@
 	<div class="detail">
 		<aby-header title="我的">
 			<div slot="back"></div>
-			<aby-fonts slot="right" class="aby-mui-bar" @click.native="toUrl" className="mui-pull-right" title="设置"></aby-fonts>
+			<aby-icon type="setting" slot="right" @click.native="toUrl" class="mui-pull-right"></aby-icon>
 		</aby-header>
-		<!--个人信息部分-->
-		<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 1px;">
-			<li class="mui-table-view-cell mui-media">
-				<a class="mui-navigate-right" href="#/homePage">
-					<img class="mui-media-object mui-pull-left" :src="cpUserInfo.cpBasic.cpLogo">
-					<div class="mui-media-body">
-						{{cpUserInfo.userName}}
-						<p class='mui-ellipsis'>{{cpUserInfo.cpBasic.cpName}}</p>
-					</div>
-				</a>
-			</li>
-		</ul>
-		<!--菜单部分-->
-		<ul class="mui-table-view mui-table-view-chevron space">
-			<li class="mui-table-view-cell mui-media">
-				<a class="mui-navigate-right menu" href="#/myProduct">
-					<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 我的产品库
-				</a>
-			</li>
-		</ul>
-		<ul class="mui-table-view mui-table-view-chevron space">
-			<li class="mui-table-view-cell mui-media">
-				<a class="mui-navigate-right menu" href="#/myPurchase">
-					<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 我的询价
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media">
-				<a class="mui-navigate-right menu" href="#/myCollection">
-					<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 我的收藏
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media">
-				<a class="mui-navigate-right menu" href="#/myCode">
-					<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 店铺二维码
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media">
-				<router-link class="mui-navigate-right menu" :to="{name:'accountList'}">
-					<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 子账号管理
-				</router-link>
-			</li>
-		</ul>
-		<ul class="mui-table-view mui-table-view-chevron space">
-			<li class="mui-table-view-cell mui-media menu">
-				<span class="mui-navigate-right" @click="onDialTel">
-					<img class="mui-media-object mui-pull-left" src="../../static/images/logo.png"> 联系客服
-				</span>
-			</li>
-		</ul>
+		<div class="content">
+			<!--个人信息部分-->
+			<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 1px;">
+				<li class="mui-table-view-cell mui-media person">
+					<a href="#/homePage" class="mui-navigate-right">
+						<img class="mui-media-object mui-pull-left personpic" :src="cpUserInfo.cpBasic.cpLogo">
+						<!--组团-->
+						<img v-if="cpUserInfo.cpBasic.cpBtype==10" class="role" src="../../static/images/ico/ico_role_travel.png" />
+						<!--地接-->
+						<img v-if="cpUserInfo.cpBasic.cpBtype==20" class="role" src="../../static/images/ico/ioc_role_local.png" />
+						
+						<div class="mui-media-body">
+							{{cpUserInfo.userName}}
+							<p class='mui-ellipsis'>{{cpUserInfo.cpBasic.cpName}}</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<!--菜单部分-->
+			<ul class="mui-table-view mui-table-view-chevron space">
+				<li class="mui-table-view-cell mui-media">
+					<a class="menu mui-navigate-right" href="#/myProduct">
+						<aby-icon-color class="ptype" type="myproduct"></aby-icon-color>我的产品库
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-table-view-chevron space">
+				<li class="mui-table-view-cell mui-media">
+					<a class="menu mui-navigate-right" href="#/myPurchase">
+						<aby-icon-color class="ptype" type="myinquiry"></aby-icon-color>我的询价
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="menu mui-navigate-right" href="#/myCollection">
+						<aby-icon-color class="ptype" type="mycollection"></aby-icon-color>我的收藏
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a class="menu mui-navigate-right" href="#/myCode">
+						<aby-icon-color class="ptype" type="mycode"></aby-icon-color>店铺二维码
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<router-link class="menu mui-navigate-right" :to="{name:'accountList'}">
+						<aby-icon-color class="ptype" type="account"></aby-icon-color>子账号管理
+					</router-link>
+				</li>
+			</ul>
+			<ul class="mui-table-view mui-table-view-chevron space">
+				<li class="mui-table-view-cell mui-media menu">
+					<span @click="onDialTel" class="mui-navigate-right">
+						<aby-icon-color class="ptype" type="service"></aby-icon-color>联系客服
+					</span>
+				</li>
+			</ul>
+		</div>
 	</div>
 </template>
 
@@ -84,8 +91,34 @@
 	}
 </script>
 <style scoped>
-	.mui-table-view-cell:after {
-		left: 0px;
-		background-color: #c8c7cc;
+	.mui-table-view-cell {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 13px;
+		
+	}
+	.personpic{
+		height: 65px!important;
+		width: 65px!important;
+		max-width: 65px!important;
+		border-radius: 5px!important;
+	}
+	.mui-media-body{
+		padding-left: 6px;
+		padding-top: 13px;
+	}
+	/*身份标志*/
+	.role{
+		width: 40px;
+		position: absolute;
+		margin-left: -50px;
+	}
+	.mui-pull-right{
+		color: #707070;
+	}
+	/*设置按钮*/
+	.aby-icon-setting{
+		font-size: 18px;
+		line-height: 23px;
 	}
 </style>

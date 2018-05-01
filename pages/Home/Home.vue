@@ -1,113 +1,91 @@
 <template>
-	<div class="mui-content" id="content">
+	<div>
 		<aby-header title="" slot="header">
 			<div slot="back"></div>
 			<header-search slot="hSearch" disabled="true" @click.native="onSearch"></header-search>
 			<aby-icon slot="right" class="mui-icon mui-pull-right icon-plus" type="plus"></aby-icon>
 		</aby-header>
 		<aby-banner pageType="1"></aby-banner>
-		<!--菜单部分-->
-		<ul class="mui-table-view mui-grid-view mui-grid-9 home-menu">
-			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-				<router-link :to="{ name:'project' }">
-					<img src="../../static/images/btn/btn_line_3x.png" />
-					<div class="mui-media-body">线路</div>
-				</router-link>
-			</li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-				<router-link :to="{ name:'hotelSearch' }">
-					<img src="../../static/images/btn/btn_hotel_3x.png" />
-					<div class="mui-media-body">酒店</div>
-				</router-link>
-			</li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-				<router-link :to="{ name:'sport' }">
-					<img src="../../static/images/btn/btn_spot_3x.png" />
-					<div class="mui-media-body">景点</div>
-				</router-link>
-			</li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
-				<router-link :to="{ name:'guide' }">
-					<img src="../../static/images/btn/btn_guide_3x.png" />
-					<div class="mui-media-body">导游</div>
-				</router-link>
-			</li>
-		</ul>
-		<!--消息部分-->
-		<ul class="mui-table-view aby-sysMsg">
-			<li class="mui-table-view-cell mui-media space" @click="toMsgList">
-				<img class="mui-media-object mui-pull-left" src="../../static/images/ico/ico_msgbar_3x.png">
-				<div class="mui-media-body aby-font-Black mui-navigate-right">
-					<p class='mui-ellipsis'>· 您有一条新的订单</p>
-					<p class='mui-ellipsis'>· 供应商推荐：猜你对以下供应商感兴趣</p>
-				</div>
-			</li>
-		</ul>
-		<!--活动模块部分-->
-		<div class="module space">
-			<table class="table table-bordered table-striped">
-				<tbody>
-					<tr>
-						<td rowspan="2" class="moduleSale">
-							<img src="../../static/images/module/module_sale_3x.png" />
-						</td>
-						<td class="moduleSupplier">
-							<img src="../../static/images/module/module_supplier_3x.png" />
-						</td>
-						<td class="moduleLine">
-							<img src="../../static/images/module/module_line_3x.png" />
-						</td>
-					</tr>
-					<tr>
-						<td class="moduleHotel">
-							<img src="../../static/images/module/module_hotel_3x.png" />
-							
-						</td>
-						<td class="modulePlane">
-							<img src="../../static/images/module/module_plane_3x.png" />
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div class="pace aa">
-			<table class="table table-bordered table-striped">
-				<tbody>
-					<tr>
-						<td rowspan="2">
-							<img src="../../static/images/module/module_sale_3x.png" />
-						</td>
-						<td>
-							<img src="../../static/images/module/module_supplier_3x.png" />
-						</td>
-						<td>
-							<img src="../../static/images/module/module_line_3x.png" />
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<img src="../../static/images/module/module_hotel_3x.png" />
-						</td>
-						<td>
-							<img src="../../static/images/module/module_plane_3x.png" />
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<!--精选产品-->
-		<div class="aby-title-center">
-			<span></span>精选产品<span></span>
-		</div>
-		<aby-tab :list="goodsList" page="index" slot="tab">
-			<div v-for="(li,i) in goodsList" :key="i" :slot="li.id">
-				<list-line v-if="li.type=='line'" :list="li.data"></list-line>
-				<list-sport v-if="li.type=='sport'" :list="li.data"></list-sport>
-				<list-hotel v-if="li.type=='hotel'" :list="li.data"></list-hotel>
+		<div class="mui-content content">
+			<aby-banner pageType="1"></aby-banner>
+			<!--菜单部分-->
+			<ul class="mui-table-view mui-grid-view mui-grid-9 home-menu">
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<router-link :to="{ name:'project' }">
+						<img src="../../static/images/btn/btn_line_3x.png" />
+						<div class="mui-media-body">线路</div>
+					</router-link>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<router-link :to="{ name:'hotelSearch' }">
+						<img src="../../static/images/btn/btn_hotel_3x.png" />
+						<div class="mui-media-body">酒店</div>
+					</router-link>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<router-link :to="{ name:'sport' }">
+						<img src="../../static/images/btn/btn_spot_3x.png" />
+						<div class="mui-media-body">景点</div>
+					</router-link>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<router-link :to="{ name:'guide' }">
+						<img src="../../static/images/btn/btn_guide_3x.png" />
+						<div class="mui-media-body">导游</div>
+					</router-link>
+				</li>
+			</ul>
+			<!--消息部分-->
+			<ul class="mui-table-view aby-sysMsg">
+				<li class="mui-table-view-cell mui-media space" @click="toMsgList">
+					<img class="mui-media-object mui-pull-left imgMsg" src="../../static/images/ico/ico_msgbar_3x.png">
+					<div class="mui-media-body aby-font-Black mui-navigate-right">
+						<p class='mui-ellipsis'>· 您有一条新的订单</p>
+						<p class='mui-ellipsis'>· 供应商推荐：猜你对以下供应商感兴趣</p>
+					</div>
+				</li>
+			</ul>
+			<!--活动模块部分-->
+			<div class="module space">
+				<table class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<td rowspan="2" class="moduleSale">
+								<img src="../../static/images/module/module_sale_3x.png" />
+							</td>
+							<td class="moduleSupplier">
+								<img src="../../static/images/module/module_supplier_3x.png" />
+							</td>
+							<td class="moduleLine">
+								<img src="../../static/images/module/module_line_3x.png" />
+							</td>
+						</tr>
+						<tr>
+							<td class="moduleHotel">
+								<img src="../../static/images/module/module_hotel_3x.png" />
+	
+							</td>
+							<td class="modulePlane">
+								<img src="../../static/images/module/module_plane_3x.png" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-		</aby-tab>
-		<div class="aby-title-center linebottom" style="padding-bottom: 80px;">
-			<span></span>我是有底线的<span></span>
+			<!--精选产品-->
+			<div class="aby-title-center">
+				<span></span>精选产品<span></span>
+			</div>
+			<aby-tab :list="goodsList" page="index" slot="tab">
+				<div v-for="(li,i) in goodsList" :key="i" :slot="li.id">
+					<list-line v-if="li.type=='line'" :list="li.data"></list-line>
+					<list-sport v-if="li.type=='sport'" :list="li.data"></list-sport>
+					<list-hotel v-if="li.type=='hotel'" :list="li.data"></list-hotel>
+				</div>
+			</aby-tab>
+			<div class="aby-title-center linebottom" style="padding-bottom: 80px;">
+				<span></span>我是有底线的<span></span>
+			</div>
 		</div>
 	</div>
 
@@ -150,6 +128,7 @@
 						data: ''
 					}
 				],
+				msgList:[]
 			}
 		},
 		methods: {
@@ -174,10 +153,10 @@
 				});
 			},
 			// 消息通知
-			toMsgList(){
+			toMsgList() {
 				this.$router.push({
 					name: 'msgSystem',
-				});
+				}); 
 			}
 		},
 		mounted() {
@@ -282,18 +261,6 @@
 		padding-top: 2px;
 	}
 	
-	/*.table-bordered>tbody>tr>th,
-	.table-bordered>tfoot>tr>th,
-	.table-bordered>thead>tr>td,
-	.table-bordered>tbody>tr>td,
-	.table-bordered>tfoot>tr>td {
-		width: 32vw;
-		height: 20.4869vw;
-	}*/
-	.aa{
-		padding: 2%;
-		background-color: #FFFFFF;
-	}
 	.table-bordered>tbody>tr>th,
 	.table-bordered>tfoot>tr>th,
 	.table-bordered>thead>tr>td,
@@ -301,9 +268,16 @@
 	.table-bordered>tfoot>tr>td {
 		width: 33%;
 	}
-	.table-bordered img{
+	
+	.table-bordered img {
 		width: 100%;
 		vertical-align: bottom;
+	}
+	/*消息部分图标*/
+	
+	.imgMsg {
+		height: auto!important;
+		margin-top: 3px;
 	}
 	/*底线*/
 	

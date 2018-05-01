@@ -16,7 +16,7 @@
 			<h5 class="mui-content-padded"></h5>
 			<ul class="mui-table-view mui-table-view-chevron">
 				<li class="mui-table-view-cell" id="about">
-					<router-link :to="{ name: 'picAbout' }" class="mui-navigate-right">关于我们  <i class="mui-pull-right update" id="versionTxt">{{versionTxt}}</i></router-link>
+					<router-link :to="{ name: 'picAbout' }" class="mui-navigate-right">关于我们 <i class="mui-pull-right update" id="versionTxt">{{versionTxt}}</i></router-link>
 				</li>
 			</ul>
 			<h5 class="mui-content-padded"></h5>
@@ -25,7 +25,9 @@
 					<a class="mui-navigate-right">客服电话：<span @click="onDialTel" class="fontGrayBlue floatRight">{{tel}}</span></a>
 				</li>
 			</ul>
-			<aby-button title="退出登录" class="btnFixed" @click.native="onLogExit"></aby-button>
+			<div class="aby-button-panel">
+				<aby-button class="aby-button-blue" title="退出登录" @click.native="onLogExit"></aby-button>
+			</div>
 		</div>
 	</aby-page>
 </template>
@@ -42,9 +44,11 @@
 			onDialTel() {
 				this.$tool.dialTelToApp(this.tel);
 			},
-			onLogExit(){
+			onLogExit() {
 				this.$store.commit('clearState');
-				this.$router.push({name:'home'});
+				this.$router.push({
+					name: 'home'
+				});
 			}
 		},
 		mounted() {},
@@ -52,12 +56,26 @@
 </script>
 
 <style scoped>
-.btnFixed {
-	position: fixed!important;
-	bottom: 0px!important;
-	margin-bottom: 0px!important;
-	text-align: center!important;
-	line-height: 10px!important;
-	border-radius: 0px!important;
-}
+	.btnFixed {
+		position: fixed!important;
+		bottom: 0px!important;
+		margin-bottom: 0px!important;
+		text-align: center!important;
+		line-height: 10px!important;
+		border-radius: 0px!important;
+	}
+	
+	.mui-table-view-cell {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 15px;
+	}
+	
+	.mui-navigate-right:after,
+	.mui-push-right:after {
+		top: 24px;
+	}
+	.aby-button-panel{
+		margin-top: 50px;
+	}
 </style>

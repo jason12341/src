@@ -6,8 +6,26 @@
 }
 
 .aby-detail-line {
+	background-image: url(../images/line/line_3x.png);
+	height: 15px;
 	background-color: #FFFFFF;
-	border-bottom: 1px dashed #DDDDDD;
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.aby-detail-linegray {
+	background-image: url(../images/line/line_gray_3x.png);
+	height: 15px;
+	background-color: #FFFFFF;
+	background-size: 92%;
+	background-position: center;
+	background-repeat: no-repeat;
+	/*width: 100%;
+	height: 1px;
+	background-image: linear-gradient(to right, #F0F0F0 0%, #F0F0F0 50%, transparent 50%);
+	background-size: 10px 1px;
+	background-repeat: repeat-x;*/
 }
 
 .aby-detail-content,
@@ -16,7 +34,7 @@
 .aby-detail-remarks,
 .aby-detail-total {
 	background-color: #FFFFFF;
-	padding: 17px;
+	padding: 5px 17px 17px 17px;
 }
 
 .aby-detail-content .mui-media-object {
@@ -37,7 +55,7 @@
 }
 
 .aby-detail-header h4 {
-	padding: 15px 15px;
+	padding: 10px 15px 20px 15px;
 	margin: 0px;
 }
 
@@ -60,6 +78,8 @@
 
 .aby-detail-publisher {
 	font-size: 13px;
+	padding: 0px 10px;
+	background-color: #FFFFFF;
 }
 
 .aby-detail .mui-table-view:before,
@@ -82,4 +102,15 @@
 	position: absolute;
 	margin-left: 50%;
 	margin-top: -30px;
+}
+
+
+/*菜单图标*/
+
+.ptype {
+	width: 24px!important;
+	height: 24px!important;
+	vertical-align: bottom!important;
+	margin-right: 8px!important;
+	margin-left: 5px!important;
 }

@@ -1,5 +1,5 @@
 <template>
-	<div class="page">
+	<div class="page" :class="page=='index'?'pt-45':''">
 		<slot name="header"></slot>
 		<div class="mui-content">
 			<div class="page-loadmore">
@@ -21,7 +21,7 @@
 
 <script>
 	export default {
-		props: ['title'],
+		props: ['title','page'],
 		components: {},
 		data() {
 			return {
@@ -77,6 +77,9 @@
 			loadBottom() {
 				setTimeout(() => {
 					this.$parent.getPullUp((ret) => {
+						if(ret.length == 0){
+							this.$tool.toast('没有更多内容了');
+						}
 						this.allLoaded = false;
 						this.$refs.loadmore.onBottomLoaded();
 					});

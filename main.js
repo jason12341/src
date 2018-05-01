@@ -24,6 +24,8 @@ import './static/css/icon.css'
 // 引入自定义js
 import AbyTool from './static/js/tool.js'
 import AbyApi from './static/js/aby-api.js'
+import AbyIcons from './static/js/iconfont.js'
+
 
 
 
@@ -32,8 +34,10 @@ import AbyPage from './components/Page/Default.vue'
 import AbyHeader from './components/Header/Default.vue'
 import AbyPull from './components/Page/Pull.vue'
 import AbyIcon from './components/Icon/Default.vue'
+import AbyIconColor from './components/Icon/IconColor.vue'
 import AbyFonts from './components/Fonts/Default.vue'
 import AbyPicker from './components/Picker/Default.vue'
+import AbyDatePicker from './components/Picker/DateTime.vue'
 import AbyButton from './components/Button/Default.vue'
 import AbyNavbar from './components/Navbar/Default.vue'
 import AbyTab from './components/Navbar/Tab.vue'
@@ -49,6 +53,7 @@ Vue.component('aby-page', AbyPage)
 Vue.component('aby-header', AbyHeader)
 Vue.component('aby-picker', AbyPicker)
 Vue.component('aby-icon',AbyIcon)
+Vue.component('aby-icon-color',AbyIconColor)
 Vue.component('aby-fonts',AbyFonts)
 Vue.component('aby-button',AbyButton)
 Vue.component('aby-navbar',AbyNavbar)
@@ -56,6 +61,7 @@ Vue.component('aby-pull',AbyPull)
 Vue.component('aby-tab',AbyTab)
 Vue.component('aby-field',AbyField)
 Vue.component('aby-loading',AbyLoading)
+Vue.component('aby-date-picker',AbyDatePicker)
 
 require('./static/js/web.js')
 //require('./static/js/app.js')

@@ -21,7 +21,11 @@
 
 
 /*----------------------------询价类型图标----------------------------*/
+/*线路*/
 
+.aby-icon-line:before {
+	content: '\e641';
+}
 
 /*导游*/
 
@@ -203,7 +207,7 @@
 /*设置*/
 
 .aby-icon-setting:before {
-	content: '\e615';
+	content: '\e651';
 }
 
 
@@ -355,6 +359,12 @@
 	content: '\e66c';
 }
 
+/*键盘*/
+
+.aby-icon-chatkeyboard:before {
+	content: '\e69d';
+}
+
 
 /*加号*/
 
@@ -367,6 +377,12 @@
 
 .aby-icon-chatcamera:before {
 	content: '\e695';
+}
+
+/*照片*/
+
+.aby-icon-chatpic:before {
+	content: '\e69e';
 }
 
 
@@ -442,11 +458,16 @@
 	content: '\e64c';
 }
 
+/*企业名称*/
+.aby-icon-business:before {
+	content: '\e699';
+}
+
 
 /*企业名称-白*/
 
 .aby-icon-businesswhite:before {
-	content: '\e64f';
+	content: '\e69a';
 }
 
 

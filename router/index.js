@@ -74,6 +74,8 @@ import MyPurchaseDetails from '../pages/My/MyPurchaseDetails'
 import MyCollection from '../pages/My/MyCollection'
 //我的产品库
 import MyProduct from '../pages/My/MyProduct'
+//我的质保金
+import MyGold from '../pages/My/MyGold.vue'
 
 //店铺主页
 import HomePage from '../pages/HomePage/HomePage.vue'
@@ -82,7 +84,9 @@ import MsgSystem from '../pages/Message/MsgSystem.vue'
 import MsgDetail from '../pages/Message/MsgDetail.vue'
 //聊天
 import Chat from '../pages/Chat/Chat.vue'
-
+//支付
+import PayWay from '../pages/Pay/PayWay.vue'
+import PayGold from '../pages/Pay/PayGold.vue'
 
 const router = new Router({
 	routes: [
@@ -136,6 +140,7 @@ const router = new Router({
 		{ name: 'myPurchaseDetails',path: '/myPurchaseDetails', component: MyPurchaseDetails},
 		{ name: 'myCollection',path: '/myCollection', component: MyCollection},
 		{ name: 'myProduct',path: '/myProduct', component: MyProduct},
+		{ name: 'myGold',path: '/MyGold', component: MyGold},
 		// 搜索
 		{ name: 'search',path: '/search',component: Search },
 		{ name: 'searchResult',path: '/searchResult',component: SearchResult },
@@ -156,8 +161,11 @@ const router = new Router({
 		{ name: 'msgSystem',path: '/MsgSystem',component: MsgSystem },
 		{ name: 'msgDetail',path: '/MsgDetail',component: MsgDetail },
 		
+		//聊天
 		{ name: 'chat',path: '/Chat',component: Chat },
-
+		//支付
+		{ name: 'payWay',path: '/PayWay',component: PayWay },
+		{ name: 'payGold',path: '/PayGold',component: PayGold },
 	]
 })
 
@@ -167,7 +175,8 @@ router.beforeEach((to, from, next) => {
 	const keepAliveAarrt = 
 		[
 		 	'home','purchase','order','message','my',
-		 	'orderList','searchIndexResult','searchResult'
+		 	'orderList','orderDetails','searchIndexResult','searchResult',
+		 	'agrList','chat',
         ]; 
 	const fromKeepAlive = Vue.$tool.isInAarry(keepAliveAarrt, from.name);
 	const toKeepAlive = Vue.$tool.isInAarry(keepAliveAarrt, to.name);
